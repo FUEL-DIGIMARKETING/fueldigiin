@@ -263,9 +263,9 @@ export default function EmailMarketingPage() {
         />
         <div className="absolute inset-0 bg-brand-primary bg-opacity-92 z-0" />
         <div className="container mx-auto px-4 relative z-10">
-          <h2 className="text-4xl lg:text-5xl font-bold text-center mb-4" data-aos="fade-up">
+          <h3 className="text-2xl lg:text-3xl font-bold text-center mb-4" data-aos="fade-up">
             Benefits of Email Marketing Automation
-          </h2>
+          </h3>
           <p className="text-xl text-center mb-14 text-white/80 max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="100">
             Everything you need to build, send, and scale your email marketing — all in one platform.
           </p>
@@ -280,7 +280,7 @@ export default function EmailMarketingPage() {
               >
                 <div className="flex items-center gap-3 mb-3">
                   <span className="text-3xl font-black text-yellow-300 leading-none">{b.number}</span>
-                  <h3 className="text-lg font-bold leading-tight">{b.title}</h3>
+                  <p className="text-lg font-bold leading-tight">{b.title}</p>
                 </div>
                 <p className="text-white/75 text-sm mb-4 leading-relaxed">{b.desc}</p>
                 <ul className="space-y-1.5">
@@ -346,9 +346,9 @@ export default function EmailMarketingPage() {
                 </div>
               </div>
             </div>
-            <p className="text-3xl lg:text-4xl font-bold text-white mb-6 leading-tight">
+            <h4 className="text-2xl lg:text-3xl font-bold text-white mb-6 leading-tight">
               Ready to Own Your Bulk Email Sender?
-            </p>
+            </h4>
             <p className="text-xl text-white/90 mb-4 leading-relaxed max-w-3xl mx-auto">
               Whether you're launching your first newsletter or managing enterprise-scale campaigns, FuelDigi Campaigns gives you the flexibility, automation, and infrastructure ownership needed to grow with confidence.
             </p>
