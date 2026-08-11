@@ -37,15 +37,6 @@ export default function AboutPage() {
       
       {/* Hero Section with Parallax */}
       <section className="relative pt-32 pb-20 overflow-hidden">
-        <div 
-          className="absolute inset-0 z-0"
-          style={{
-            backgroundImage: 'url(/assets/hero_banner_3.webp)',
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            backgroundAttachment: 'fixed'
-          }}
-        />
         <div className="absolute inset-0 bg-brand-primary bg-opacity-90 z-0" />
         <div className="absolute inset-0 opacity-10" style={{
           backgroundImage: 'repeating-linear-gradient(0deg, transparent, transparent 2px, white 2px, white 4px), repeating-linear-gradient(90deg, transparent, transparent 2px, white 2px, white 4px)',

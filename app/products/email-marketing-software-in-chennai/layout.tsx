@@ -13,7 +13,56 @@ export const metadata: Metadata = {
     type: 'website',
   },
 }
+const schemaData = {
+   "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://www.fueldigi.in/products/email-marketing-software-in-chennai#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.fueldigi.in/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Email Marketing Software",
+          "item": "https://www.fueldigi.in/products/email-marketing-software-in-chennai"
+        }
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://www.fueldigi.in/products/email-marketing-software-in-chennai#webpage",
+      "name": "Email Marketing Software",
+      "url": "https://www.fueldigi.in/products/email-marketing-software-in-chennai",
+      "isPartOf": {
+        "@type": "WebSite",
+        "@id": "https://www.fueldigi.in/#website",
+        "url": "https://www.fueldigi.in/"
+      },
+      "breadcrumb": {
+        "@id": "https://www.fueldigi.in/products/email-marketing-software-in-chennai#breadcrumb"
+      }
+    }
+  ]
+}
 
-export default function EmailMarketingLayout({ children }: { children: React.ReactNode }) {
-  return <>{children}</>
+export default function EmailMarketingLayout({
+  children,
+}: {
+  children: React.ReactNode
+}) {
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
+      />
+      {children}
+    </>
+  )
 }

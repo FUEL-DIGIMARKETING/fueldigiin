@@ -27,7 +27,7 @@ const HeroSlider = () => {
     { name: 'CRM', href: '/products/crm-development-company-in-chennai' },
     { name: 'HRMS', href: '/products/hrms-development-services-in-chennai' },
     { name: 'Spa Booking', href: 'products/spa-booking-software-in-chennai' },
-    { name: 'E-Mail Campaign', href: 'products/email-marketing-software-in-chennai ' }
+    { name: 'FuelDigi Campaigns', href: 'products/email-marketing-software-in-chennai ' }
   ]
 
   return (

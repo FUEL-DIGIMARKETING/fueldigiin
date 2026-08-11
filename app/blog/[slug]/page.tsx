@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description: blog.metaDescription || blog.excerpt,
     keywords: blog.metaKeywords?.join(', ') || undefined,
     alternates: {
-      canonical: blog.canonical || `https://www.fueldigi.in/blog/${blog.slug}`,
+      canonical: `${process.env.NEXT_PUBLIC_BASE_URL || 'https://www.fueldigi.in'}/blog/${blog.slug}`,
     },
     openGraph: {
       title: blog.metaTitle || blog.title,

@@ -37,7 +37,7 @@ const Footer = () => {
               <li><Link href="/products/crm-development-company-in-chennai" className="text-white hover:text-[#ffcf3e] transition-colors">CRM System</Link></li>
               <li><Link href="/products/hrms-development-services-in-chennai" className="text-white hover:text-[#ffcf3e] transition-colors">HRMS</Link></li>
               <li><Link href="/products/spa-booking-software-in-chennai" className="text-white hover:text-[#ffcf3e] transition-colors">Spa Booking</Link></li>
-              <li><Link href="/products/email-marketing-software-in-chennai" className="text-white hover:text-[#ffcf3e] transition-colors">E-Mail Campaign</Link></li>
+              <li><Link href="/products/email-marketing-software-in-chennai" className="text-white hover:text-[#ffcf3e] transition-colors">FuelDigi Campaigns</Link></li>
             </ul>
           </div>
 

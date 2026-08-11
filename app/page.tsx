@@ -91,69 +91,118 @@ const Home = () => {
   ]
 
   const schemaData = {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "Organization",
-        "@id": "https://www.fueldigi.in/#organization",
-        "name": "FuelDigi",
-        "url": "https://www.fueldigi.in/",
-        "logo": "https://www.fueldigi.in/assets/best-digital-marketing-company-services-chennai-online-fdm.webp",
-        "description": "FuelDigi is a SaaS product company offering custom software solutions including CRM, HRMS, and cloud-based business applications.",
-        "address": {
-          "@type": "PostalAddress",
-          "streetAddress": "Door No.S102, Second Floor, Plot No.36, Chandrasekaran Nagar Second Street, Rajiv Gandhi Salai, Thoraipakkam",
-          "addressLocality": "Chennai",
-          "addressRegion": "Tamil Nadu",
-          "postalCode": "600097",
-          "addressCountry": "IN"
-        },
-        "contactPoint": {
-          "@type": "ContactPoint",
-          "telephone": "+918754236989",
-          "contactType": "customer support",
-          "areaServed": "IN",
-          "availableLanguage": ["English"]
-        },
-        "sameAs": ["https://www.fueldigi.in/"]
+     "@context": "https://schema.org",
+  "@graph": [
+
+    {
+      "@type": "Organization",
+      "@id": "https://www.fueldigi.in/#organization",
+      "name": "FuelDigi",
+      "url": "https://www.fueldigi.in/",
+      "logo": "https://www.fueldigi.in/assets/best-digital-marketing-company-services-chennai-online-fdm.webp",
+      "description": "FuelDigi is a SaaS product company offering custom software solutions including CRM, HRMS, and cloud-based business applications.",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Door No.S102, Second Floor, Plot No.36, Chandrasekaran Nagar Second Street, Rajiv Gandhi Salai, Thoraipakkam",
+        "addressLocality": "Chennai",
+        "addressRegion": "Tamil Nadu",
+        "postalCode": "600097",
+        "addressCountry": "IN"
       },
-      {
-        "@type": "WebSite",
-        "@id": "https://www.fueldigi.in/#website",
-        "url": "https://www.fueldigi.in/",
-        "name": "FuelDigi",
-        "publisher": { "@id": "https://www.fueldigi.in/#organization" },
-        "potentialAction": {
-          "@type": "SearchAction",
-          "target": "https://www.fueldigi.in/?s={search_term_string}",
-          "query-input": "required name=search_term_string"
-        }
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+918754236989",
+        "contactType": "customer support",
+        "areaServed": "IN",
+        "availableLanguage": ["English"]
       },
-      {
-        "@type": "Service",
-        "serviceType": "Custom SaaS Software Development",
-        "provider": { "@id": "https://www.fueldigi.in/#organization" },
-        "areaServed": { "@type": "Place", "name": "India" },
-        "description": "FuelDigi provides custom-built SaaS solutions including CRM systems, HRMS, and cloud-based applications to automate business operations and improve productivity.",
-        "hasOfferCatalog": {
-          "@type": "OfferCatalog",
-          "name": "Software Solutions",
-          "itemListElement": [
-            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "CRM Software" } },
-            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "HRMS Software" } },
-            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Spa Booking Software" } },
-            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Custom SaaS Development" } }
-          ]
-        }
+      "sameAs": [
+        "https://www.fueldigi.in/"
+      ]
+    },
+
+
+    {
+      "@type": "WebSite",
+      "@id": "https://www.fueldigi.in/#website",
+      "url": "https://www.fueldigi.in/",
+      "name": "FuelDigi",
+      "publisher": {
+        "@id": "https://www.fueldigi.in/#organization"
       },
-      {
-        "@type": "BreadcrumbList",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://www.fueldigi.in/?s={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    },
+
+
+    {
+      "@type": "Service",
+      "serviceType": "Custom SaaS Software Development",
+      "provider": {
+        "@id": "https://www.fueldigi.in/#organization"
+      },
+      "areaServed": {
+        "@type": "Place",
+        "name": "India"
+      },
+      "description": "FuelDigi provides custom-built SaaS solutions including CRM systems, HRMS, and cloud-based applications to automate business operations and improve productivity.",
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Software Solutions",
         "itemListElement": [
-          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.fueldigi.in/" }
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "CRM Software"
+            }
+          },
+
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "HRMS Software"
+            }
+          },
+
+
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Spa Booking Software"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Custom SaaS Development"
+            }
+          }
         ]
       }
-    ]
-  }
+    },
+
+
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.fueldigi.in/"
+        }
+      ]
+    }
+
+  ]
+}
 
   return (
     <div className="min-h-screen">

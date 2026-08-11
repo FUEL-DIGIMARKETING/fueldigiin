@@ -97,15 +97,6 @@ export default function EmailMarketingPage() {
 
       {/* Hero Section */}
       <section className="relative pt-32 pb-24 overflow-hidden">
-        <div
-          className="absolute inset-0 z-0"
-          style={{
-            backgroundImage: 'url(/assets/hero_banner_3.webp)',
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            backgroundAttachment: 'fixed',
-          }}
-        />
         <div className="absolute inset-0 bg-brand-primary bg-opacity-92 z-0" />
         <div className="absolute inset-0 opacity-10" style={{
           backgroundImage: 'repeating-linear-gradient(0deg, transparent, transparent 2px, white 2px, white 4px), repeating-linear-gradient(90deg, transparent, transparent 2px, white 2px, white 4px)',
@@ -127,9 +118,12 @@ export default function EmailMarketingPage() {
             <a href="https://campaigns.fueldigi.in/login" target="_blank" rel="noopener noreferrer" className="bg-white text-brand-primary font-bold px-8 py-3 rounded-full hover:bg-primary hover:text-white transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105">
               Start Free Today
             </a>
-            <a href="#benefits" className="border-2 border-white text-white font-bold px-8 py-3 rounded-full hover:bg-white hover:text-brand-primary transition-all duration-300">
+            <button
+              onClick={() => document.getElementById('benefits')?.scrollIntoView({ behavior: 'smooth' })}
+              className="border-2 border-white text-white font-bold px-8 py-3 rounded-full hover:bg-white hover:text-brand-primary transition-all duration-300"
+            >
               Explore Features
-            </a>
+            </button>
           </div>
         </div>
       </section>
@@ -366,7 +360,7 @@ export default function EmailMarketingPage() {
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
               </a>
               <a
-                href="/contact"
+                href="https://meetings.fueldigi.in/"
                 className="bg-transparent border-2 border-white hover:bg-white hover:text-[#870d23] text-white font-bold py-5 px-10 rounded-2xl transition-all duration-300 transform hover:scale-105 text-lg"
               >
                 Book a Demo
