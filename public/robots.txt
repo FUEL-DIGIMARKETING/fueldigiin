@@ -1,0 +1,12 @@
+User-agent: *
+Disallow: /_next/
+Disallow: /static/
+Disallow: /*.js$
+Disallow: /*.css$
+Disallow: /hrms/payment
+Disallow: /crm/payment
+Disallow: /products/crm-development-company-in-chennai/payment
+
+Allow: /
+
+Sitemap: https://www.fueldigi.in/sitemap.xml

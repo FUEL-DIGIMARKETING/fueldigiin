@@ -1,0 +1,29 @@
+'use client'
+
+import './globals.css'
+import { useEffect } from 'react'
+import AOS from 'aos'
+import 'aos/dist/aos.css'
+
+export default function RootLayout({ children }) {
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+      once: true,
+      easing: 'ease-out',
+    })
+  }, [])
+
+  return (
+    <html lang="en">
+      <head>
+        <meta charSet="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>FuelDigi - Smart SaaS Solutions for Smarter Businesses</title>
+      </head>
+      <body className="antialiased">
+        {children}
+      </body>
+    </html>
+  )
+}
