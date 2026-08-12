@@ -14,7 +14,7 @@ declare global {
   }
 }
 
-const API = 'https://app.fdmcrm.in/api'
+const API = 'https://commoncrm.fueldigi.in/api'
 
 // ── Usage Statistics Component ──────────────────────────────────────────────────────────────────────────────────
 function UsageStatsCard({ currentUsage, planLimits }: { currentUsage: any; planLimits: any }) {
