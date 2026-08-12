@@ -14,6 +14,7 @@ const STATIC_PAGES = [
   { path: '/products/crm-software-development-services-in-chennai',   changefreq: 'monthly', priority: '0.8', type: 'Product Page' },
   { path: '/products/hrms-development-services-in-chennai',           changefreq: 'monthly', priority: '0.8', type: 'Product Page' },
   { path: '/products/spa-salon-management-software-in-chennai',       changefreq: 'monthly', priority: '0.8', type: 'Product Page' },
+  { path: '/products/email-marketing-software-in-chennai',       changefreq: 'monthly', priority: '0.8', type: 'Product Page' },
 ]
 
 export async function POST(request: NextRequest) {

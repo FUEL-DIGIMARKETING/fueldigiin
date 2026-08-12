@@ -70,7 +70,7 @@ const benefits = [
     number: '09',
     title: 'Designed for Growing Businesses',
     desc: "FuelDigi Campaigns adapts to organizations of every size. You can easily access it for your business email delivery process, whether you're sending thousands or millions of emails; the platform scales with your business.",
-    items: ['SaaS Companies', 'Digital Marketing Agencies', 'eCommerce Stores', 'Educational Institutions', 'Healthcare Organizations', 'B2B Businesses', 'Startups', 'Enterprises', 'Nonprofits', 'Membership Platforms'],
+    items: ['SaaS Companies', { label: 'Digital Marketing Agencies', href: 'https://www.fueldigi.com/best-digital-marketing-agency-in-chennai/' }, 'eCommerce Stores', 'Educational Institutions', 'Healthcare Organizations', 'B2B Businesses', 'Startups', 'Enterprises', 'Nonprofits', 'Membership Platforms'],
   },
   {
     number: '10',
@@ -152,7 +152,7 @@ export default function EmailMarketingPage() {
               <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-yellow-300/20 rounded-full blur-2xl" />
               <div className="relative bg-gradient-to-br from-[#870d23] to-[#a01129] rounded-3xl p-2 shadow-2xl">
                 <img
-                  src="/assets/email-campaign.webp"
+                  src="/assets/email-campaign-dashboard.webp"
                   alt="FuelDigi Email Marketing Software"
                   className="w-full h-auto rounded-2xl object-cover"
                 />
@@ -281,7 +281,9 @@ export default function EmailMarketingPage() {
                   {b.items.map((item, j) => (
                     <li key={j} className="flex items-center gap-2 text-sm text-white/90">
                       <span className="w-1.5 h-1.5 bg-yellow-300 rounded-full flex-shrink-0" />
-                      {item}
+                      {typeof item === 'object' ? (
+                        <a href={item.href} target="_blank" rel="noopener noreferrer" className="text-blue-600 underline hover:text-blue-800 transition-colors duration-200">{item.label}</a>
+                      ) : item}
                     </li>
                   ))}
                 </ul>
