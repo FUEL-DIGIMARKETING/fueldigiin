@@ -10,14 +10,14 @@ interface Props {
 export default function BlogTwoColumnWrapper({ right, children }: Props) {
   const wrapperRef = useRef<HTMLDivElement>(null)
   const sidebarRef = useRef<HTMLDivElement>(null)
-  const [sidebarStyle, setSidebarStyle] = useState<React.CSSProperties>({})
-  const [mainMargin, setMainMargin] = useState(0)
-  const [mounted, setMounted] = useState(false)
-
   const SIDEBAR_W = 320
   const GAP = 32
   const STICKY_TOP = 24
   const FOOTER_GAP = 24
+
+  const [sidebarStyle, setSidebarStyle] = useState<React.CSSProperties>({ position: 'absolute', top: 0, right: 0, width: SIDEBAR_W, opacity: 1 })
+  const [mainMargin, setMainMargin] = useState(SIDEBAR_W + GAP)
+  const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
     setMounted(true)
