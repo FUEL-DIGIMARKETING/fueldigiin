@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { Mail, Phone, MapPin } from 'lucide-react'
+import { Mail, Phone, MapPin, Instagram, Linkedin } from 'lucide-react'
 
 const Footer = () => {
   return (
@@ -13,9 +13,29 @@ const Footer = () => {
             <div className="flex items-center">
               <a href="/"><img src="/assets/software-development-company.webp" alt="FuelDigi Logo" width={120} height={120} className="rounded-full" /></a>
             </div>
-            <p className="text-white">
+            <p className="text-white mt-4">
               Smart SaaS Solutions for Smarter Businesses. Building customized software that grows with you.
             </p>
+            <div className="flex items-center gap-3 mt-6">
+              <a
+                href="https://www.instagram.com/fueldigi/?hl=en"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram"
+                className="w-10 h-10 rounded-full bg-white/10 hover:bg-white hover:text-[#840c1c] text-white flex items-center justify-center transition-all duration-300 hover:scale-110"
+              >
+                <Instagram size={20} />
+              </a>
+              <a
+                href="https://www.linkedin.com/company/fueldigi-marketing-private-limited/posts/?feedView=all"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn"
+                className="w-10 h-10 rounded-full bg-white/10 hover:bg-white hover:text-[#840c1c] text-white flex items-center justify-center transition-all duration-300 hover:scale-110"
+              >
+                <Linkedin size={20} />
+              </a>
+            </div>
           </div>
 
           {/* Quick Links */}
