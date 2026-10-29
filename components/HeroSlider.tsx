@@ -33,7 +33,7 @@ const HeroSlider = () => {
   return (
     <div className="relative bg-white">
       {/* Fixed Navbar - Desktop Only - Shown Initially, Hidden on Scroll */}
-      <div className={`hidden md:block fixed top-0 left-0 right-0 z-50 bg-white shadow-lg transition-all duration-300 ${
+      <div className={`hidden md:block fixed top-10 left-0 right-0 z-50 bg-white shadow-lg transition-all duration-300 ${
         showHeroNavbar ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
       }`} data-hero-navbar>
         <div className="flex justify-center">
@@ -101,43 +101,43 @@ const HeroSlider = () => {
       </div>
 
       {/* Hero Section with Curved Edges */}
-      <div className="relative h-[100vh] overflow-hidden pt-4 md:pt-4 px-0 md:px-8 pb-4 md:pb-8" data-hero-slider>
+      <div className="relative w-full px-2 md:px-4 pb-2 md:pb-4 mt-[144px] md:mt-10" data-hero-slider>
         {/* Curved Background Container */}
-        <div className="relative h-full rounded-[40px] md:rounded-[60px] overflow-hidden">
+        <div className="relative w-full rounded-[20px] md:rounded-[40px] overflow-hidden">
           <img
-            src="/assets/software-development-services.webp"
+            src="/assets/diwali-offer-banner.webp"
             alt="Hero Banner"
-            className="absolute inset-0 w-full h-full object-cover"
+            className="w-full h-auto block"
           />
           {/* Black overlay for mobile text visibility */}
-          <div className="absolute inset-0 bg-black/50 md:bg-transparent z-[1]" />
+          {/* <div className="absolute inset-0 bg-black/50 md:bg-transparent z-[1]" /> */}
 
           {/* Hexagonal Pattern Overlay */}
-          <div className="absolute inset-0" style={{
+          {/* <div className="absolute inset-0" style={{
             backgroundImage: `url("data:image/svg+xml,%3Csvg width='100' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M50 0L93.3 25L93.3 75L50 100L6.7 75L6.7 25Z' fill='none' stroke='rgba(255,255,255,0.05)' stroke-width='1'/%3E%3C/svg%3E")`,
             backgroundSize: '100px 100px'
-          }} />
+          }} /> */}
           
           {/* Decorative Dots */}
-          <div className="absolute top-20 left-10 w-40 h-40 opacity-30">
+          {/* <div className="absolute top-20 left-10 w-40 h-40 opacity-30">
             {[...Array(20)].map((_, i) => (
               <div key={i} className="absolute w-3 h-3 bg-gray-500 rounded-full" style={{
                 left: `${(i % 5) * 25}%`,
                 top: `${Math.floor(i / 5) * 25}%`
               }} />
             ))}
-          </div>
-          <div className="absolute bottom-20 right-10 w-40 h-40 opacity-30">
+          </div> */}
+          {/* <div className="absolute bottom-20 right-10 w-40 h-40 opacity-30">
             {[...Array(20)].map((_, i) => (
               <div key={i} className="absolute w-3 h-3 bg-gray-500 rounded-full" style={{
                 left: `${(i % 5) * 25}%`,
                 top: `${Math.floor(i / 5) * 25}%`
               }} />
             ))}
-          </div>
+          </div> */}
 
           {/* Content */}
-          <div className="absolute inset-0 flex items-center justify-center z-10">
+          {/* <div className="absolute inset-0 flex items-center justify-center z-10">
             <div className="container mx-auto px-8 text-center">
               <p className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight drop-shadow-lg">
                 Smart Business Software,<br />Built for Your Evolution
@@ -152,10 +152,10 @@ const HeroSlider = () => {
                 Start Your Project
               </Link>
             </div>
-          </div>
+          </div> */}
           
           {/* Brand Logos Section */}
-          <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-[100%] z-10">
+          {/* <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-[100%] z-10">
             <div className="bg-white/80 backdrop-blur-sm rounded-2xl py-4 px-2 overflow-hidden border border-white/50 shadow-lg">
               <p className="text-gray-800 font-bold text-sm mb-2 tracking-wider text-center">TRUSTED BY AMAZING BRANDS</p>
               <div className="flex items-center gap-16 md:gap-32 animate-scroll-fast" style={{ width: 'max-content' }}>
@@ -166,7 +166,6 @@ const HeroSlider = () => {
                 <img src="/assets/best-real-estate-company-in-chennai-river-properties.png" alt="River Properties" width={120} height={60} className="h-8 md:h-12 w-auto flex-shrink-0" />
                 <img src="/assets/best-automatic-water-level-controller-in-chennai.png" alt="SGM" width={120} height={60} className="h-8 md:h-12 w-auto flex-shrink-0" />
                 <img src="/assets/financial-consultant-in-chennai.png" alt="Financial Consultant" width={120} height={60} className="h-8 md:h-12 w-auto flex-shrink-0" />
-                {/* Duplicate for seamless loop */}
                 <img src="/assets/good-caterers-in-chennai.png" alt="CMS Business Finance" width={120} height={60} className="h-8 md:h-12 w-auto flex-shrink-0" />
                 <img src="/assets/sgm-finance-associate.png" alt="KVB Events" width={120} height={60} className="h-8 md:h-12 w-auto flex-shrink-0" />
                 <img src="/assets/river-salon-and-day-spa.png" alt="KVB" width={120} height={60} className="h-8 md:h-12 w-auto flex-shrink-0" />
@@ -176,7 +175,7 @@ const HeroSlider = () => {
                 <img src="/assets/financial-consultant-in-chennai.png" alt="Financial Consultant" width={120} height={60} className="h-8 md:h-12 w-auto flex-shrink-0" />
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>

@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 import Navbar from '@/components/Navbar'
-import { Shield, Cloud, Smartphone, MapPin, Clock, CheckCircle, MapPin as MapPinIcon, Calendar, DollarSign, FileText, Users, Settings, FileBarChart, IndianRupee, User, UserCheck, Crown, Database, Lock, RefreshCw, TrendingUp, Zap, BarChart, Building2, Gauge, Monitor, Rocket, Check, ArrowRight, ChevronDown, CalendarOff, Wallet, Bell, Star, Flower, Target, Headphones, Building, Stethoscope, Wrench, Factory } from 'lucide-react'
+import { Shield, Cloud, Smartphone, MapPin, Clock, CheckCircle, MapPin as MapPinIcon, Calendar, DollarSign, FileText, Users, Settings, FileBarChart, IndianRupee, User, UserCheck, Crown, Database, Lock, RefreshCw, TrendingUp, Zap, BarChart, Building2, Gauge, Monitor, Rocket, Check, ArrowRight, ChevronDown, CalendarOff, Wallet, Bell, Star, Flower, Target, Headphones, Building, Stethoscope, Wrench, Factory, X, Send, Loader2, Sparkles, Phone } from 'lucide-react'
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion'
 
 // Add custom CSS for animations
@@ -181,12 +181,70 @@ export default function CRMPage() {
     }
   }
 
+  // Custom Plan Modal state
+  const [showCustomModal, setShowCustomModal] = useState(false)
+  const [customForm, setCustomForm] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    companyName: '',
+    customFeatures: '',
+  })
+  const [customCountryCode, setCustomCountryCode] = useState('+91')
+  const [customErrors, setCustomErrors] = useState<{ email?: string; phone?: string }>({})
+  const [isCustomSubmitting, setIsCustomSubmitting] = useState(false)
+  const [customSuccess, setCustomSuccess] = useState(false)
+  const [customSubmitError, setCustomSubmitError] = useState<string | null>(null)
+
+  const handleCustomSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    const emailErr = validateEmail(customForm.email)
+    const phoneErr = validatePhone(customForm.phone)
+    if (emailErr || phoneErr) {
+      setCustomErrors({ email: emailErr, phone: phoneErr })
+      return
+    }
+    setIsCustomSubmitting(true)
+    setCustomSubmitError(null)
+
+    try {
+      const response = await fetch('/api/custom-plan', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          ...customForm,
+          phone: `${customCountryCode} ${customForm.phone}`,
+          product: 'FuelDigi CRM',
+        }),
+      })
+
+      const result = await response.json()
+      if (result.success) {
+        setCustomSuccess(true)
+        setCustomForm({
+          name: '',
+          email: '',
+          phone: '',
+          companyName: '',
+          customFeatures: '',
+        })
+        setCustomErrors({})
+      } else {
+        setCustomSubmitError(result.error || 'Failed to submit. Please try again or email info@fueldigi.in directly.')
+      }
+    } catch (err) {
+      setCustomSubmitError('Something went wrong. Please try again or email us directly at info@fueldigi.in.')
+    } finally {
+      setIsCustomSubmitting(false)
+    }
+  }
+
   const [openIndex, setOpenIndex] = useState(0)
 
   const plans = [
     { name: "Starter Plan", price: "₹1,000", period: "/ month", subtitle: ["Platform Fee: ₹1,000/month", "Extra Users: ₹500/user/month", "Lead Limit: 1,000 (₹1/extra lead)", "Users Included: Up to 3", "Facebook Pages: 1"], features: ["Telecalling page with call logging","Basic reporting & analytics","Email integration","Role-based permission management","Call tracking (calls made, converted)","Team management","Calendar integration","Mobile app access"], lockedFeatures: ["Cold case management","Facebook lead integration","Advanced reporting & dashboards","Follow-up tracker"], note: "Best for startups and small sales teams.", highlighted: false, color: "bg-blue-500" },
-    { name: "Professional Plan", price: "₹2,500", period: "/ month", subtitle: ["Platform Fee: ₹2,500/month","Extra Users: ₹1,000/user/month","Lead Limit: 2,500 (₹1/extra lead)","Users Included: Up to 8","Facebook Pages: 2"], features: ["All Starter Plan features","Facebook lead integration (2 pages)","Cold case management","Automated reminders & follow-ups","Advanced reporting & dashboards","24/7 customer support","Onboarding & training assistance"], lockedFeatures: ["Follow-up tracker","Import/Export functionality", "Advanced analytics & insights", "Team performance analytics"], note: "Best for growing sales organizations.", highlighted: true, color: "bg-gradient-to-br from-[#870d23] to-[#a01129]" },
-    { name: "Enterprise Plan", price: "₹4,000", period: "/ month", subtitle: ["Platform Fee: ₹4,000/month","Extra Users: ₹1,500/user/month","Lead Limit: Unlimited","Users Included: 12 included","Facebook Pages: 5"], features: ["All Professional Plan features","Facebook integration (up to 5 pages)","Advanced analytics & insights","Follow-up tracker with automation","Import/Export functionality","Custom fields & workflows","Priority support","Team performance analytics","Bulk operations","Work Progress Tracking","Usage Dashboard"], note: "Contact sales for customized pricing.", highlighted: false, color: "bg-emerald-500" }
+    { name: "Professional Plan", price: "₹2,500", period: "/ month", subtitle: ["Platform Fee: ₹2,500/month","Extra Users: ₹1,000/user/month","Lead Limit: 2,500 (₹1/extra lead)","Users Included: Up to 8","Facebook Pages: 2","Other Platform: 2"], features: ["All Starter Plan features","Facebook lead integration (2 pages)","Other Platform (Website, App)","Cold case management","Automated reminders & follow-ups","Advanced reporting & dashboards","24/7 customer support","Onboarding & training assistance"], lockedFeatures: ["Follow-up tracker","Import/Export functionality", "Advanced analytics & insights", "Team performance analytics"], note: "Best for growing sales organizations.", highlighted: true, color: "bg-gradient-to-br from-[#870d23] to-[#a01129]" },
+    { name: "Enterprise Plan", price: "₹4,000", period: "/ month", subtitle: ["Platform Fee: ₹4,000/month","Extra Users: ₹1,500/user/month","Lead Limit: Unlimited","Users Included: 12 included","Facebook Pages: 5","Other Platform: 4"], features: ["All Professional Plan features","Facebook integration (up to 5 pages)","Other Platform (Website, App)","Advanced analytics & insights","Follow-up tracker with automation","Import/Export functionality","Custom fields & workflows","Priority support","Team performance analytics","Bulk operations","Work Progress Tracking","Usage Dashboard"], note: "Best for large scale industries.", highlighted: false, color: "bg-emerald-500" }
   ]
 
   const yearlyPlans = [
@@ -263,6 +321,222 @@ export default function CRMPage() {
             <button onClick={() => setShowModal(false)} className="bg-[#870d23] text-white font-bold px-8 py-3 rounded-2xl hover:bg-[#6b0a1c] transition-all duration-300 hover:scale-105">
               Close
             </button>
+          </div>
+        </div>
+      )}
+
+      {/* Custom Plan Request Modal */}
+      {showCustomModal && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/65 backdrop-blur-sm"
+          onClick={() => setShowCustomModal(false)}
+        >
+          <div
+            className="relative bg-white rounded-3xl p-6 sm:p-8 max-w-lg w-full shadow-2xl z-10 max-h-[90vh] overflow-y-auto border border-gray-200"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Top decorative bar */}
+            <div className="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-[#870d23] via-[#a01129] to-[#ffcf3e]" />
+
+            {/* Close Button */}
+            <button
+              type="button"
+              onClick={() => setShowCustomModal(false)}
+              className="absolute top-4 right-4 text-gray-400 hover:text-gray-700 bg-gray-100 hover:bg-gray-200 rounded-full w-8 h-8 flex items-center justify-center transition-colors cursor-pointer"
+              aria-label="Close modal"
+            >
+              <X className="w-4 h-4" />
+            </button>
+
+            {customSuccess ? (
+              /* Success State */
+              <div className="text-center py-6">
+                <div className="text-5xl sm:text-6xl mb-4">🎉</div>
+                <h3 className="text-2xl sm:text-3xl font-extrabold text-gray-900 mb-3">
+                  Thank You!
+                </h3>
+                <p className="text-gray-600 text-base sm:text-lg mb-6 leading-relaxed">
+                  Thank you for submitting your custom plan requirements. We have received your inquiry and our team will get in touch with you soon!
+                </p>
+                <div className="bg-amber-50 border border-amber-200 rounded-2xl p-4 mb-6 text-xs sm:text-sm text-gray-700 font-medium">
+                  <strong>Pricing Structure:</strong>
+                  <div className="font-bold text-[#870d23] mt-1 text-sm sm:text-base">
+                    Platform fee you choose + custom feature fee / month
+                  </div>
+                </div>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setShowCustomModal(false)
+                    setCustomSuccess(false)
+                  }}
+                  className="bg-[#870d23] hover:bg-[#6b0a1c] text-white font-bold px-8 py-3.5 rounded-2xl transition-all duration-300 hover:scale-105 shadow-md cursor-pointer"
+                >
+                  Close
+                </button>
+              </div>
+            ) : (
+              /* Form State */
+              <div>
+                <div className="text-center mb-5">
+                  <div className="inline-flex items-center gap-1.5 bg-amber-50 text-[#870d23] border border-amber-200 font-bold text-xs uppercase px-3 py-1 rounded-full mb-2">
+                    <Sparkles className="w-3.5 h-3.5 text-amber-500" />
+                    <span>FuelDigi CRM</span>
+                  </div>
+                  <h3 className="text-2xl sm:text-3xl font-black text-gray-900">
+                    Request a Custom Plan
+                  </h3>
+                  <p className="text-gray-600 text-xs sm:text-sm mt-1">
+                    Tell us what your sales team needs and we will tailor a plan for you.
+                  </p>
+                </div>
+
+                {/* Pricing Structure Note as requested */}
+                <div className="bg-amber-50/90 border border-amber-300 rounded-2xl p-3.5 sm:p-4 mb-5 text-center shadow-xs">
+                  <p className="text-xs uppercase font-extrabold text-[#870d23] tracking-wider mb-0.5">
+                    Pricing Structure
+                  </p>
+                  <p className="text-sm sm:text-base font-black text-gray-900">
+                    Platform fee you choose + custom feature fee / month
+                  </p>
+                  <p className="text-[11px] text-gray-600 mt-0.5">
+                    Select your base platform tier and add only the custom modules you need.
+                  </p>
+                </div>
+
+                {customSubmitError && (
+                  <div className="mb-4 p-3 bg-red-50 border border-red-200 text-red-600 text-xs rounded-xl">
+                    {customSubmitError}
+                  </div>
+                )}
+
+                <form onSubmit={handleCustomSubmit} className="space-y-4">
+                  {/* Name */}
+                  <div>
+                    <label className="block text-xs font-bold text-gray-700 uppercase tracking-wide mb-1.5">
+                      Your Name *
+                    </label>
+                    <input
+                      type="text"
+                      required
+                      placeholder="e.g. John Doe"
+                      value={customForm.name}
+                      onChange={(e) => setCustomForm({ ...customForm, name: e.target.value })}
+                      className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#870d23] focus:border-transparent text-sm bg-white"
+                    />
+                  </div>
+
+                  {/* Phone */}
+                  <div>
+                    <label className="block text-xs font-bold text-gray-700 uppercase tracking-wide mb-1.5">
+                      Phone Number *
+                    </label>
+                    <div className="flex gap-2">
+                      <select
+                        value={customCountryCode}
+                        onChange={(e) => {
+                          setCustomCountryCode(e.target.value)
+                          setCustomForm((f) => ({ ...f, phone: '' }))
+                        }}
+                        className="px-2.5 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#870d23] bg-white text-xs sm:text-sm font-medium"
+                      >
+                        {countryCodes.map((c) => (
+                          <option key={c.code} value={c.code}>
+                            {c.label}
+                          </option>
+                        ))}
+                      </select>
+                      <input
+                        type="tel"
+                        required
+                        placeholder="Phone number"
+                        value={customForm.phone}
+                        onChange={(e) => {
+                          const digitsOnly = e.target.value.replace(/\D/g, '')
+                          const targetDigits = countryCodes.find((c) => c.code === customCountryCode)?.digits || 10
+                          if (digitsOnly.length <= targetDigits) {
+                            setCustomForm({ ...customForm, phone: digitsOnly })
+                            setCustomErrors((p) => ({
+                              ...p,
+                              phone: digitsOnly.length === targetDigits ? '' : `Phone must be ${targetDigits} digits`,
+                            }))
+                          }
+                        }}
+                        className={`flex-1 px-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-[#870d23] focus:border-transparent text-sm bg-white ${customErrors.phone ? 'border-red-400' : 'border-gray-300'}`}
+                      />
+                    </div>
+                    {customErrors.phone && <p className="text-red-500 text-xs mt-1">{customErrors.phone}</p>}
+                  </div>
+
+                  {/* Email */}
+                  <div>
+                    <label className="block text-xs font-bold text-gray-700 uppercase tracking-wide mb-1.5">
+                      Email Address *
+                    </label>
+                    <input
+                      type="email"
+                      required
+                      placeholder="you@company.com"
+                      value={customForm.email}
+                      onChange={(e) => {
+                        setCustomForm({ ...customForm, email: e.target.value })
+                        setCustomErrors((p) => ({ ...p, email: validateEmail(e.target.value) }))
+                      }}
+                      className={`w-full px-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-[#870d23] focus:border-transparent text-sm bg-white ${customErrors.email ? 'border-red-400' : 'border-gray-300'}`}
+                    />
+                    {customErrors.email && <p className="text-red-500 text-xs mt-1">{customErrors.email}</p>}
+                  </div>
+
+                  {/* Company Name */}
+                  <div>
+                    <label className="block text-xs font-bold text-gray-700 uppercase tracking-wide mb-1.5">
+                      Company Name
+                    </label>
+                    <input
+                      type="text"
+                      placeholder="Your Company / Business Name"
+                      value={customForm.companyName}
+                      onChange={(e) => setCustomForm({ ...customForm, companyName: e.target.value })}
+                      className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#870d23] focus:border-transparent text-sm bg-white"
+                    />
+                  </div>
+
+                  {/* Custom Feature You Required */}
+                  <div>
+                    <label className="block text-xs font-bold text-gray-700 uppercase tracking-wide mb-1.5">
+                      Custom Feature You Required *
+                    </label>
+                    <textarea
+                      required
+                      rows={3}
+                      placeholder="Describe the custom features, integrations, or workflows you need for your CRM..."
+                      value={customForm.customFeatures}
+                      onChange={(e) => setCustomForm({ ...customForm, customFeatures: e.target.value })}
+                      className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#870d23] focus:border-transparent text-sm bg-white resize-none"
+                    />
+                  </div>
+
+                  {/* Submit Button */}
+                  <button
+                    type="submit"
+                    disabled={isCustomSubmitting}
+                    className="w-full mt-2 py-3.5 px-6 bg-gradient-to-r from-[#870d23] to-[#a01129] hover:from-[#6b0a1c] hover:to-[#870d23] text-white font-bold rounded-2xl shadow-lg hover:shadow-xl transform hover:scale-[1.01] transition-all duration-200 text-sm sm:text-base flex items-center justify-center gap-2 disabled:opacity-60 disabled:cursor-not-allowed cursor-pointer"
+                  >
+                    {isCustomSubmitting ? (
+                      <>
+                        <Loader2 className="w-5 h-5 animate-spin" />
+                        <span>Sending Request...</span>
+                      </>
+                    ) : (
+                      <>
+                        <span>Submit Request</span>
+                        <Send className="w-4 h-4" />
+                      </>
+                    )}
+                  </button>
+                </form>
+              </div>
+            )}
           </div>
         </div>
       )}
@@ -978,6 +1252,44 @@ export default function CRMPage() {
                 }`}>Get Started</button>
               </div>
             ))}
+          </div>
+
+          {/* Need a Custom Plan Container */}
+          <div className="mt-14 max-w-5xl mx-auto">
+            <div className="bg-white border-2 border-[#870d23]/20 rounded-3xl p-6 sm:p-10 shadow-xl relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-6">
+              <div className="absolute top-0 right-0 w-72 h-72 bg-gradient-to-br from-[#870d23]/5 to-transparent rounded-full blur-2xl pointer-events-none" />
+
+              <div className="space-y-3 text-center md:text-left relative z-10">
+                <div className="inline-flex items-center gap-1.5 bg-amber-50 text-[#870d23] border border-amber-200/80 font-black text-xs px-3 py-1 rounded-full uppercase tracking-wider">
+                  <Sparkles className="w-3.5 h-3.5 text-amber-500" />
+                  <span>Tailored Solutions</span>
+                </div>
+                <h4 className="text-2xl sm:text-3xl font-extrabold text-gray-900">
+                  Need a Custom Plan?
+                </h4>
+                <p className="text-gray-600 text-sm sm:text-base max-w-xl leading-relaxed">
+                  Looking for specialized workflows, unique integrations, custom permissions, or tailored modules for your team? Let's design a plan built exactly for your business.
+                </p>
+                <div className="inline-block bg-amber-50/90 border border-amber-200 text-[#870d23] font-semibold text-xs sm:text-sm px-3.5 py-1.5 rounded-xl">
+                  Pricing: Platform fee you choose + custom feature fee / month
+                </div>
+              </div>
+
+              <div className="flex-shrink-0 relative z-10">
+                <button
+                  type="button"
+                  onClick={() => {
+                    setShowCustomModal(true)
+                    setCustomSuccess(false)
+                    setCustomSubmitError(null)
+                  }}
+                  className="bg-gradient-to-r from-[#870d23] to-[#a01129] hover:from-[#6b0a1c] hover:to-[#870d23] text-white font-bold px-8 py-4 rounded-2xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 text-base flex items-center gap-2.5 cursor-pointer whitespace-nowrap"
+                >
+                  <span>Need a Custom Plan</span>
+                  <ArrowRight className="w-5 h-5" />
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </section>

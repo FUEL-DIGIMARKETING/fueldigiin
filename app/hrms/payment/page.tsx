@@ -17,7 +17,8 @@ const RAZORPAY_KEY = process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID || ''
 const PLANS = [
   {
     id: 'BASIC', name: 'Basic Plan',
-    monthlyPrice: 5000, yearlyPrice: 52800, yearlyOriginal: 60000,
+    monthlyPrice: 4000, monthlyOriginal: 5000,
+    yearlyPrice: 48000, yearlyOriginal: 60000,
     icon: Shield, color: '#3b82f6', popular: false,
     description: 'Essential HR tools for growing teams',
     defaultFeatures: ['Employee Records', 'Complaints', 'Calendar', 'Add Employee', 'Checkout Request', 'Monthly Attendance Tracking', 'Attendance Record', 'Role Management'],
@@ -25,7 +26,8 @@ const PLANS = [
   },
   {
     id: 'PRO', name: 'Pro Plan',
-    monthlyPrice: 7000, yearlyPrice: 73920, yearlyOriginal: 84000,
+    monthlyPrice: 5600, monthlyOriginal: 7000,
+    yearlyPrice: 67200, yearlyOriginal: 84000,
     icon: Zap, color: '#870d23', popular: true,
     description: 'Full HR suite with payroll & reports',
     defaultFeatures: ['Employee Records', 'Complaints', 'Calendar', 'Add Employee', 'Checkout Request', 'Monthly Attendance Tracking', 'Attendance Record', 'Role Management'],
@@ -33,7 +35,8 @@ const PLANS = [
   },
   {
     id: 'ENTERPRISE', name: 'Enterprise Plan',
-    monthlyPrice: 10000, yearlyPrice: 105600, yearlyOriginal: 120000,
+    monthlyPrice: 8000, monthlyOriginal: 10000,
+    yearlyPrice: 96000, yearlyOriginal: 120000,
     icon: Star, color: '#7c3aed', popular: false,
     description: 'Complete enterprise HR platform',
     defaultFeatures: ['Employee Records', 'Complaints', 'Calendar', 'Add Employee', 'Checkout Request', 'Monthly Attendance Tracking', 'Attendance Record', 'Role Management'],
@@ -42,7 +45,7 @@ const PLANS = [
 ]
 
 const PLAN_ORDER = ['BASIC', 'PRO', 'ENTERPRISE']
-const YEARLY_DISCOUNT = 12 // percent
+const YEARLY_DISCOUNT = 20 // percent
 
 // ── Helpers ───────────────────────────────────────────────────────────────────
 const fmt = (n: number) => '₹' + n.toLocaleString('en-IN')
@@ -189,8 +192,8 @@ function BillingToggle({
   onChange: (v: 'monthly' | 'yearly') => void
 }) {
   return (
-    <div className="flex items-center justify-center gap-4 mb-8">
-      <span className={`text-sm font-semibold ${interval === 'monthly' ? 'text-gray-900' : 'text-gray-400'}`}>
+    <div className="flex items-center justify-center gap-3 sm:gap-4 mb-8 flex-wrap">
+      <span className={`text-sm font-semibold ${interval === 'monthly' ? 'text-gray-900 font-bold' : 'text-gray-400'}`}>
         Monthly
       </span>
       <button
@@ -205,14 +208,12 @@ function BillingToggle({
           }`}
         />
       </button>
-      <span className={`text-sm font-semibold ${interval === 'yearly' ? 'text-gray-900' : 'text-gray-400'}`}>
+      <span className={`text-sm font-semibold ${interval === 'yearly' ? 'text-gray-900 font-bold' : 'text-gray-400'}`}>
         Yearly
       </span>
-      {interval === 'yearly' && (
-        <span className="bg-green-100 text-green-700 text-xs font-bold px-2.5 py-1 rounded-full border border-green-200">
-          Save {YEARLY_DISCOUNT}%
-        </span>
-      )}
+      <span className="bg-[#ffcf3e] text-[#6b0a1c] text-xs font-black px-2.5 py-1 rounded-full border border-amber-400 shadow-sm uppercase tracking-wider">
+        20% OFF
+      </span>
     </div>
   )
 }
@@ -492,8 +493,16 @@ export default function PaymentPage() {
           <button onClick={() => router.back()} className="flex items-center gap-2 mb-4 hover:opacity-80 transition-opacity">
             <ArrowLeft className="w-5 h-5" /><span>Back</span>
           </button>
-          <h1 className="text-3xl font-bold">HRMS Subscription</h1>
-          <p className="text-white/90 mt-1">Upgrade your plan and unlock powerful HR features</p>
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+            <div>
+              <h1 className="text-3xl font-bold">HRMS Subscription</h1>
+              <p className="text-white/90 mt-1">Upgrade your plan and unlock powerful HR features</p>
+            </div>
+            <div className="inline-flex items-center gap-2 bg-[#ffcf3e] text-[#6b0a1c] font-black px-4 py-2 rounded-full shadow-lg border border-amber-300 self-start md:self-auto text-sm">
+              <span>🪔</span>
+              <span>Diwali Offer: 20% OFF Applied</span>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -760,20 +769,42 @@ export default function PaymentPage() {
             </h2>
             <p className="text-gray-500 text-center text-sm mb-6">All plans include default HR features. GST will be added during payment.</p>
 
-            <BillingToggle interval={billingInterval} onChange={v => { setBillingInterval(v); setError('') }} />
-
-            {/* Yearly savings banner */}
-            {billingInterval === 'yearly' && (
-              <div className="bg-gradient-to-r from-green-50 to-emerald-50 border border-green-200 rounded-xl p-4 mb-6 flex items-center gap-3">
-                <div className="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0">
-                  <Calendar className="w-5 h-5 text-green-600" />
+            {/* Special Offer Alert Banner */}
+            <div className="bg-gradient-to-r from-amber-50 via-orange-50 to-amber-50 border border-amber-300 rounded-2xl p-4 mb-6 shadow-sm flex items-center justify-between gap-4 flex-wrap">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full bg-amber-100 flex items-center justify-center text-xl flex-shrink-0">
+                  🪔
                 </div>
                 <div>
-                  <p className="font-bold text-green-800">🎉 You're saving {YEARLY_DISCOUNT}% with yearly billing!</p>
-                  <p className="text-green-700 text-sm mt-0.5">Pay once a year and get 2 months free compared to monthly billing.</p>
+                  <p className="font-extrabold text-[#870d23] text-sm sm:text-base">
+                    Diwali Special Offer: Flat 20% OFF Applied on All Plans!
+                  </p>
+                  <p className="text-xs text-gray-600 mt-0.5">
+                    Cut HR manual work by 70%. Attendance, leave, payroll & payslips — all in one platform.
+                  </p>
                 </div>
               </div>
-            )}
+              <span className="bg-[#ffcf3e] text-[#6b0a1c] font-black text-xs px-3 py-1 rounded-full uppercase tracking-wider border border-amber-400 shadow-sm">
+                20% OFF APPLIED
+              </span>
+            </div>
+
+            <BillingToggle interval={billingInterval} onChange={v => { setBillingInterval(v); setError('') }} />
+
+            {/* Savings banner */}
+            <div className="bg-gradient-to-r from-green-50 to-emerald-50 border border-green-200 rounded-xl p-4 mb-6 flex items-center gap-3">
+              <div className="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0">
+                <Calendar className="w-5 h-5 text-green-600" />
+              </div>
+              <div>
+                <p className="font-bold text-green-800">🎉 Special Diwali Discount: 20% OFF Applied!</p>
+                <p className="text-green-700 text-sm mt-0.5">
+                  {billingInterval === 'yearly'
+                    ? 'Annual billing with flat 20% discount applied across all plans.'
+                    : 'Monthly subscription with flat 20% discount applied across all plans.'}
+                </p>
+              </div>
+            </div>
 
             {/* Plan cards */}
             <div className="grid md:grid-cols-3 gap-6 mb-8">
@@ -789,12 +820,11 @@ export default function PaymentPage() {
                     onClick={() => { setSelectedPlan(plan.id); setError('') }}
                     className={`relative bg-white rounded-2xl shadow-lg cursor-pointer transition-all border-2 overflow-hidden ${isSelected ? 'border-[#870d23] scale-[1.02] shadow-xl' : 'border-transparent hover:border-gray-200 hover:shadow-xl'}`}>
 
-                    {/* Yearly savings ribbon */}
-                    {billingInterval === 'yearly' && (
-                      <div className="bg-green-500 text-white text-xs font-bold text-center py-1.5 tracking-wide">
-                        SAVE {YEARLY_DISCOUNT}% — 2 MONTHS FREE
-                      </div>
-                    )}
+                    {/* 20% OFF Special Ribbon */}
+                    <div className="bg-gradient-to-r from-amber-500 via-[#870d23] to-amber-500 text-white text-xs font-extrabold text-center py-1.5 tracking-wider uppercase flex items-center justify-center gap-1.5 shadow-sm">
+                      <span>🪔</span>
+                      <span>DIWALI SPECIAL — 20% OFF</span>
+                    </div>
 
                     <div className="p-6">
                       {plan.popular && (
@@ -821,11 +851,15 @@ export default function PaymentPage() {
 
                       {/* Price */}
                       <div className="mb-4 p-4 rounded-xl text-center" style={{ backgroundColor: plan.color + '08' }}>
-                        {billingInterval === 'yearly' && plan.yearlyOriginal && (
-                          <div className="mb-2">
-                            <span className="text-lg text-gray-400 line-through">{fmt(plan.yearlyOriginal)}</span>
-                          </div>
-                        )}
+                        {/* 20% OFF Original Price & Discount Tag */}
+                        <div className="flex items-center justify-center gap-2 mb-1.5">
+                          <span className="text-base text-gray-400 line-through font-semibold">
+                            {fmt(billingInterval === 'yearly' ? plan.yearlyOriginal : plan.monthlyOriginal)}
+                          </span>
+                          <span className="bg-[#ffcf3e] text-[#6b0a1c] text-[11px] font-black px-2 py-0.5 rounded-full uppercase tracking-wider border border-amber-400 shadow-sm">
+                            20% OFF
+                          </span>
+                        </div>
                         <div className="flex items-end justify-center gap-1">
                           <span className="text-4xl font-black" style={{ color: plan.color }}>{fmt(price)}</span>
                           <span className="text-gray-500 text-sm mb-1.5">/{billingInterval === 'yearly' ? 'year' : 'month'}</span>
@@ -941,7 +975,7 @@ export default function PaymentPage() {
                   </div>
                   {billingInterval === 'yearly' && (
                     <div className="mt-2 bg-green-50 border border-green-200 rounded-lg p-2">
-                      <p className="text-green-700 text-xs font-semibold">🎉 Yearly plan active — you saved {YEARLY_DISCOUNT}% vs monthly billing!</p>
+                      <p className="text-green-700 text-xs font-semibold">🎉 Yearly plan active — you saved 20% with our Diwali Special offer!</p>
                     </div>
                   )}
                   <p className="text-gray-400 text-xs mt-3">Features updated instantly in your HRMS app</p>

@@ -2,6 +2,7 @@ import './globals.css'
 import type { Metadata } from 'next'
 import AOSInit from '@/components/AOSInit'
 import { Toaster } from 'react-hot-toast'
+import DiwaliOfferModal from '@/components/DiwaliOfferModal'
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.fueldigi.in'),
@@ -73,6 +74,7 @@ export default function RootLayout({
             },
           }}
         />
+        <DiwaliOfferModal />
         {children}
         <script
           dangerouslySetInnerHTML={{

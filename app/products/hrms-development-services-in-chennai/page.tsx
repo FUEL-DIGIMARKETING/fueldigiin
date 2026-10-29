@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
 import Navbar from '@/components/Navbar'
-import { Shield, Cloud, Smartphone, MapPin, Clock, CheckCircle, MapPin as MapPinIcon, Calendar, DollarSign, FileText, Users, Settings, FileBarChart, IndianRupee, User, UserCheck, Crown, Database, Lock, RefreshCw, TrendingUp, Zap, BarChart, Building2, Gauge, Monitor, Rocket, Check, ArrowRight, ChevronDown, CalendarOff, Wallet, Bell, Star } from 'lucide-react'
+import { Shield, Cloud, Smartphone, MapPin, Clock, CheckCircle, MapPin as MapPinIcon, Calendar, DollarSign, FileText, Users, Settings, FileBarChart, IndianRupee, User, UserCheck, Crown, Database, Lock, RefreshCw, TrendingUp, Zap, BarChart, Building2, Gauge, Monitor, Rocket, Check, ArrowRight, ChevronDown, CalendarOff, Wallet, Bell, Star, Sparkles, Phone } from 'lucide-react'
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion'
 
 // Add custom CSS for animations
@@ -158,13 +158,13 @@ export default function HRMSPage() {
 
   const plans = [
     {
-      name: 'Basic Plan', price: '₹5,000', period: '/ month',
+      name: 'Basic Plan', price: '₹4,000', originalPrice: '₹5,000 / month', period: '/ month', saving: '🪔 20% OFF',
       tagline: 'Perfect for small teams getting started with HR automation.',
       features: ['Employee Management','Attendance Tracking','Leave Management','Holiday Calendar','Leave Request Approval','Salary Management','Email Support (Business Hours)','Initial Setup Assistance'],
       note: 'Best for startups and small teams.', highlighted: false, color: 'bg-blue-500'
     },
     {
-      name: 'Pro Plan', price: '₹7,000', period: '/ month',
+      name: 'Pro Plan', price: '₹5,600', originalPrice: '₹7,000 / month', period: '/ month', saving: '🪔 20% OFF',
       tagline: 'Best for growing businesses needing better control and insights.',
       features: ['All features in Basic Plan','Payslip Download','Employee Reports','Global Updater Tool',
       'Work From Home Management','Week-off Configuration','Priority Email & Chat Support',
@@ -172,7 +172,7 @@ export default function HRMSPage() {
       note: 'Best for growing businesses.', highlighted: true, color: 'bg-gradient-to-br from-[#870d23] to-[#a01129]'
     },
     {
-      name: 'Enterprise Plan', price: '₹10,000', period: '/ month',
+      name: 'Enterprise Plan', price: '₹8,000', originalPrice: '₹10,000 / month', period: '/ month', saving: '🪔 20% OFF',
       tagline: 'Advanced solution for organizations with complex HR needs.',
       features: ['All features in Pro Plan','Daily Work Updates','Employee Overview Dashboard','Overtime Management & Approvals','HR Meeting Scheduling','Employee Meeting Management','24/7 Priority Support','Custom Feature Development (On Request)','Advanced Security & Data Control',],
       note: 'For organizations with complex HR needs.', highlighted: false, color: 'bg-emerald-500'
@@ -181,13 +181,13 @@ export default function HRMSPage() {
 
   const yearlyPlans = [
     {
-      name: 'Basic Plan', price: '₹52,800', originalPrice: '₹60,000 / year', period: '/ year', saving: 'Save 12%',
+      name: 'Basic Plan', price: '₹48,000', originalPrice: '₹60,000 / year', period: '/ year', saving: '🪔 20% OFF',
       tagline: 'Perfect for small teams getting started with HR automation.',
       features: ['Employee Management','Attendance Tracking','Leave Management','Holiday Calendar','Leave Request Approval','Salary Management','Email Support (Business Hours)','Initial Setup Assistance'],
       note: 'Best for startups and small teams.', highlighted: false, color: 'bg-blue-500'
     },
     {
-      name: 'Pro Plan', price: '₹73,920', originalPrice: '₹84,000 / year', period: '/ year', saving: 'Save 12%',
+      name: 'Pro Plan', price: '₹67,200', originalPrice: '₹84,000 / year', period: '/ year', saving: '🪔 20% OFF',
       tagline: 'Best for growing businesses needing better control and insights.',
       features: ['All features in Basic Plan','Payslip Download','Employee Reports','Global Updater Tool',
       'Work From Home Management','Week-off Configuration','Priority Email & Chat Support',
@@ -195,7 +195,7 @@ export default function HRMSPage() {
       note: 'Best for growing businesses.', highlighted: true, color: 'bg-gradient-to-br from-[#870d23] to-[#a01129]'
     },
     {
-      name: 'Enterprise Plan', originalPrice: '₹1,20,000 / year', price: '₹1,05,600', period: '/ year', saving: 'Save 12%',
+      name: 'Enterprise Plan', originalPrice: '₹1,20,000 / year', price: '₹96,000', period: '/ year', saving: '🪔 20% OFF',
       tagline: 'Advanced solution for organizations with complex HR needs.',
       features: ['All features in Pro Plan','Daily Work Updates','Employee Overview Dashboard','Overtime Management & Approvals','HR Meeting Scheduling','Employee Meeting Management','24/7 Priority Support','Custom Feature Development (On Request)','Advanced Security & Data Control',],     
       note: 'For organizations with complex HR needs.', highlighted: false, color: 'bg-emerald-500'
@@ -926,9 +926,9 @@ export default function HRMSPage() {
                   : 'bg-white text-gray-900 border border-gray-200 shadow-lg hover:shadow-xl hover:-translate-y-1'
               }`}>
                 {plan.highlighted && <span className="absolute -top-4 left-1/2 -translate-x-1/2 bg-gradient-to-r from-[#870d23] to-[#a01129] text-white text-sm font-bold px-5 py-1.5 rounded-full shadow-lg">⭐ Most Popular</span>}
-                {'saving' in plan && billingCycle === 'yearly' && (
-                  <span className={`absolute top-4 right-4 text-xs font-bold px-3 py-1 rounded-full ${
-                    plan.highlighted ? 'bg-white/20 text-white' : 'bg-green-100 text-green-700'
+                {'saving' in plan && (
+                  <span className={`absolute top-4 right-4 text-xs font-black px-3 py-1 rounded-full shadow-sm flex items-center gap-1 ${
+                    plan.highlighted ? 'bg-[#ffcf3e] text-[#6b0a1c]' : 'bg-[#ffcf3e]/20 text-[#870d23] border border-[#ffcf3e]'
                   }`}>{plan.saving}</span>
                 )}
 
@@ -939,8 +939,13 @@ export default function HRMSPage() {
                 <p className="text-xl font-bold mb-1">{plan.name}</p>
                 <p className={`text-xs mb-4 ${plan.highlighted ? 'text-white/70' : 'text-gray-500'}`}>{plan.tagline}</p>
                 <div className="mb-1">
-                  {'originalPrice' in plan && billingCycle === 'yearly' && (
-                    <span className={`text-lg line-through ${plan.highlighted ? 'text-white/50' : 'text-gray-400'}`}>{(plan as any).originalPrice}</span>
+                  {'originalPrice' in plan && (
+                    <div className="flex items-center gap-2 mb-1">
+                      <span className={`text-base line-through font-semibold ${plan.highlighted ? 'text-white/60' : 'text-gray-400'}`}>{(plan as any).originalPrice}</span>
+                      <span className="text-[11px] font-black text-[#680819] bg-[#ffcf3e] px-2 py-0.5 rounded-full uppercase tracking-wider">
+                        20% OFF
+                      </span>
+                    </div>
                   )}
                   <div className="flex items-end gap-1">
                     <span className={`text-4xl font-black ${plan.highlighted ? 'text-white' : 'text-[#870d23]'}`}>{plan.price}</span>

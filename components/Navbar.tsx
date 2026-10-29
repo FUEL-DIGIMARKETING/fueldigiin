@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { ChevronDown, Menu, X, Phone, Mail } from 'lucide-react'
+import DiwaliTopBar from '@/components/DiwaliTopBar'
 
 export default function Navbar() {
   const [isVisible, setIsVisible] = useState(false)
@@ -77,8 +78,11 @@ export default function Navbar() {
   if (isProductPage) {
     return (
       <>
+        {/* Fixed Diwali Offer Top Bar */}
+        <DiwaliTopBar />
+
         {/* Desktop - Curved navbar on scroll */}
-        <div className={`hidden md:block fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        <div className={`hidden md:block fixed top-10 left-0 right-0 z-50 transition-all duration-300 ${
           isVisible ? 'translate-y-0' : '-translate-y-full'
         }`}>
           <div className="flex justify-center">
@@ -155,7 +159,7 @@ export default function Navbar() {
         </div>
 
         {/* Mobile - Top contact bar */}
-        <div className="md:hidden fixed top-0 left-0 right-0 z-50 bg-brand-primary px-4">
+        <div className="md:hidden fixed top-10 left-0 right-0 z-50 bg-brand-primary px-4">
           <div className="flex items-center justify-center gap-4 h-10 text-white text-xs font-semibold">
             <a href="tel:+918754236989" className="flex items-center gap-1 hover:text-gray-200 transition-colors">
               <Phone className="w-3 h-3" />
@@ -170,7 +174,7 @@ export default function Navbar() {
         </div>
 
         {/* Mobile - Only curved navbar */}
-        <div className="md:hidden fixed top-10 left-0 right-0 z-50 px-4">
+        <div className="md:hidden fixed top-20 left-0 right-0 z-50 px-4">
           <div className="bg-white shadow-lg" style={{
             borderBottomLeftRadius: '30px',
             borderBottomRightRadius: '30px',
@@ -240,8 +244,11 @@ export default function Navbar() {
 
   return (
     <>
+      {/* Fixed Diwali Offer Top Bar */}
+      <DiwaliTopBar />
+
       {/* Desktop - Curved navbar on scroll */}
-      <div className={`hidden md:block fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      <div className={`hidden md:block fixed top-10 left-0 right-0 z-50 transition-all duration-300 ${
         isVisible ? 'translate-y-0' : '-translate-y-full'
       }`}>
         <div className="flex justify-center">
@@ -317,7 +324,7 @@ export default function Navbar() {
       </div>
 
       {/* Mobile - Top contact bar */}
-      <div className="md:hidden fixed top-0 left-0 right-0 z-50 bg-brand-primary px-4">
+      <div className="md:hidden fixed top-10 left-0 right-0 z-50 bg-brand-primary px-4">
         <div className="flex items-center justify-center gap-4 h-10 text-white text-xs font-semibold">
           <a href="tel:+918754236989" className="flex items-center gap-1 hover:text-gray-200 transition-colors">
             <Phone className="w-3 h-3" />
@@ -332,7 +339,7 @@ export default function Navbar() {
       </div>
 
       {/* Mobile - Only curved navbar */}
-      <div className="md:hidden fixed top-10 left-0 right-0 z-50 px-4">
+      <div className="md:hidden fixed top-20 left-0 right-0 z-50 px-4">
         <div className="bg-white shadow-lg" style={{
           borderBottomLeftRadius: '30px',
           borderBottomRightRadius: '30px',

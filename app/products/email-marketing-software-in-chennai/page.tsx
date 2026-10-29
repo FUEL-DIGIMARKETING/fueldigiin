@@ -1,9 +1,9 @@
 'use client'
 
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import Navbar from '@/components/Navbar'
 import NeumorphicCard from '@/components/NeumorphicCard'
-import { ArrowRight, Mail, Zap, BarChart3, FactoryIcon } from 'lucide-react'
+import { ArrowRight, Mail, Zap, BarChart3, FactoryIcon, Check, Sparkles } from 'lucide-react'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
 
@@ -86,7 +86,188 @@ const industries = [
   'Startups', 'Enterprises', 'Membership Platforms',
 ]
 
+const monthlyPlans = [
+  {
+    name: 'Free Trial',
+    price: '₹0',
+    period: '/mo',
+    subtitle: '14-day free trial',
+    badge: '',
+    highlighted: false,
+    color: 'bg-blue-500',
+    buttonText: 'Included',
+    buttonLink: 'https://campaigns.fueldigi.in/register',
+    features: [
+      '200 emails / month',
+      '500 contacts',
+      '5 templates',
+      '2 team members',
+      '1 sending domain',
+    ],
+  },
+  {
+    name: 'Starter',
+    price: '₹999',
+    period: '/mo',
+    subtitle: '10,000 emails / month',
+    badge: '',
+    highlighted: false,
+    color: 'bg-amber-500',
+    buttonText: 'Select Plan',
+    buttonLink: 'https://campaigns.fueldigi.in/register',
+    features: [
+      '10,000 emails / month',
+      '10,000 contacts',
+      '30 templates',
+      '3 team members',
+      '1 sending domain',
+      '3 drip sequences',
+    ],
+  },
+  {
+    name: 'Professional',
+    price: '₹2,999',
+    period: '/mo',
+    subtitle: '50,000 emails / month',
+    badge: 'Popular',
+    highlighted: true,
+    color: 'bg-gradient-to-br from-[#870d23] to-[#a01129]',
+    buttonText: 'Select Plan',
+    buttonLink: 'https://campaigns.fueldigi.in/register',
+    features: [
+      '50,000 emails / month',
+      '1,00,000 contacts',
+      '60 templates',
+      '6 team members',
+      '10 sending domains',
+      'Automation (20 flows)',
+      '10 drip sequences',
+      'AI content tools',
+      'API access',
+      'Webhooks',
+      'Overage at ₹0.03 / email',
+    ],
+  },
+  {
+    name: 'Business',
+    price: '₹7,999',
+    period: '/mo',
+    subtitle: 'Unlimited emails / month',
+    badge: 'Current',
+    highlighted: false,
+    color: 'bg-emerald-600',
+    buttonText: 'Select Plan',
+    buttonLink: 'https://campaigns.fueldigi.in/register',
+    features: [
+      'Unlimited emails / month',
+      'Unlimited contacts',
+      'Unlimited templates',
+      '10 team members',
+      'Unlimited sending domains',
+      'Automation (Unlimited flows)',
+      'Unlimited drip sequences',
+      'AI content tools',
+      'API access',
+      'Webhooks',
+      'White-label branding',
+      'Audit logs',
+    ],
+  },
+]
+
+const yearlyPlans = [
+  {
+    name: 'Free Trial',
+    price: '₹0',
+    period: '/yr',
+    subtitle: '14-day free trial',
+    badge: '',
+    highlighted: false,
+    color: 'bg-blue-500',
+    buttonText: 'Included',
+    buttonLink: 'https://campaigns.fueldigi.in/register',
+    features: [
+      '200 emails / month',
+      '500 contacts',
+      '5 templates',
+      '2 team members',
+      '1 sending domain',
+    ],
+  },
+  {
+    name: 'Starter',
+    price: '₹10,549',
+    period: '/yr',
+    subtitle: 'Save 12% vs monthly',
+    badge: '',
+    highlighted: false,
+    color: 'bg-amber-500',
+    buttonText: 'Select Plan',
+    buttonLink: 'https://campaigns.fueldigi.in/register',
+    features: [
+      '10,000 emails / month',
+      '10,000 contacts',
+      '30 templates',
+      '3 team members',
+      '1 sending domain',
+      '3 drip sequences',
+    ],
+  },
+  {
+    name: 'Professional',
+    price: '₹31,669',
+    period: '/yr',
+    subtitle: 'Save 12% vs monthly',
+    badge: 'Popular',
+    highlighted: true,
+    color: 'bg-gradient-to-br from-[#870d23] to-[#a01129]',
+    buttonText: 'Select Plan',
+    buttonLink: 'https://campaigns.fueldigi.in/register',
+    features: [
+      '50,000 emails / month',
+      '1,00,000 contacts',
+      '60 templates',
+      '6 team members',
+      '10 sending domains',
+      'Automation (20 flows)',
+      '10 drip sequences',
+      'AI content tools',
+      'API access',
+      'Webhooks',
+      'Overage at ₹0.03 / email',
+    ],
+  },
+  {
+    name: 'Business',
+    price: '₹84,469',
+    period: '/yr',
+    subtitle: 'Save 12% vs monthly',
+    badge: 'Current',
+    highlighted: false,
+    color: 'bg-emerald-600',
+    buttonText: 'Select Plan',
+    buttonLink: 'https://campaigns.fueldigi.in/register',
+    features: [
+      'Unlimited emails / month',
+      'Unlimited contacts',
+      'Unlimited templates',
+      '10 team members',
+      'Unlimited sending domains',
+      'Automation (Unlimited flows)',
+      'Unlimited drip sequences',
+      'AI content tools',
+      'API access',
+      'Webhooks',
+      'White-label branding',
+      'Audit logs',
+    ],
+  },
+]
+
 export default function EmailMarketingPage() {
+  const [billingCycle, setBillingCycle] = useState<'monthly' | 'yearly'>('monthly')
+  const activePlans = billingCycle === 'monthly' ? monthlyPlans : yearlyPlans
+
   useEffect(() => {
     AOS.init({ duration: 1000, once: true })
   }, [])
@@ -119,10 +300,10 @@ export default function EmailMarketingPage() {
               Start Free Today
             </a>
             <button
-              onClick={() => document.getElementById('benefits')?.scrollIntoView({ behavior: 'smooth' })}
+              onClick={() => document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' })}
               className="border-2 border-white text-white font-bold px-8 py-3 rounded-full hover:bg-white hover:text-brand-primary transition-all duration-300"
             >
-              Explore Features
+              View Pricing
             </button>
           </div>
         </div>
@@ -289,6 +470,143 @@ export default function EmailMarketingPage() {
                 </ul>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Pricing Section */}
+      <section id="pricing" className="py-24 bg-gradient-to-b from-gray-50 via-white to-gray-50 relative overflow-hidden">
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="text-center max-w-3xl mx-auto mb-12" data-aos="fade-up">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-primary/10 text-brand-primary font-semibold text-sm mb-4">
+              <Sparkles className="w-4 h-4" />
+              <span>FuelDigi Campaigns Pricing</span>
+            </div>
+            <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4 tracking-tight">
+              Flexible Plans Built for Growth
+            </h2>
+            <p className="text-lg text-gray-600">
+              Start free, send with confidence, and scale effortlessly with our enterprise-grade email infrastructure.
+            </p>
+
+            {/* Billing Toggle */}
+            <div className="flex items-center justify-center gap-4 mt-8">
+              <button
+                type="button"
+                onClick={() => setBillingCycle('monthly')}
+                className={`px-6 py-2.5 rounded-full text-sm font-bold transition-all duration-300 ${
+                  billingCycle === 'monthly'
+                    ? 'bg-brand-primary text-white shadow-md'
+                    : 'bg-gray-100 text-gray-600 hover:text-gray-900'
+                }`}
+              >
+                Monthly
+              </button>
+              <button
+                type="button"
+                onClick={() => setBillingCycle('yearly')}
+                className={`px-6 py-2.5 rounded-full text-sm font-bold transition-all duration-300 flex items-center gap-2 ${
+                  billingCycle === 'yearly'
+                    ? 'bg-brand-primary text-white shadow-md'
+                    : 'bg-gray-100 text-gray-600 hover:text-gray-900'
+                }`}
+              >
+                <span>Yearly</span>
+                <span className="bg-emerald-500 text-white text-[11px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider">
+                  Save 12%
+                </span>
+              </button>
+            </div>
+          </div>
+
+          {/* Pricing Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto items-stretch">
+            {activePlans.map((plan, index) => {
+              const isHighlighted = plan.highlighted
+              return (
+                <div
+                  key={plan.name}
+                  data-aos="fade-up"
+                  data-aos-delay={index * 100}
+                  className={`relative rounded-3xl p-6 sm:p-7 flex flex-col justify-between transition-all duration-300 ${
+                    isHighlighted
+                      ? 'bg-gradient-to-br from-[#870d23] to-[#a01129] text-white shadow-2xl lg:-translate-y-2 border-2 border-[#870d23]'
+                      : 'bg-white text-gray-900 border border-gray-200 shadow-lg hover:shadow-xl hover:-translate-y-1'
+                  }`}
+                >
+                  {/* Badge */}
+                  {plan.badge === 'Popular' && (
+                    <div className="absolute -top-3.5 left-1/2 -translate-x-1/2">
+                      <span className="inline-flex items-center gap-1.5 bg-yellow-400 text-gray-900 text-xs font-black px-4 py-1 rounded-full shadow-md uppercase tracking-wider">
+                        <Sparkles className="w-3.5 h-3.5" />
+                        Popular
+                      </span>
+                    </div>
+                  )}
+
+                  <div>
+                    {/* Header */}
+                    <div className="mb-4">
+                      <h3 className={`text-xl font-bold mb-1 ${isHighlighted ? 'text-white' : 'text-gray-900'}`}>
+                        {plan.name}
+                      </h3>
+                      <p className={`text-xs font-medium ${isHighlighted ? 'text-white/80' : 'text-gray-500'}`}>
+                        {plan.subtitle}
+                      </p>
+                    </div>
+
+                    {/* Price */}
+                    <div className="mb-6 flex items-baseline gap-1">
+                      <span className={`text-4xl font-extrabold tracking-tight ${isHighlighted ? 'text-white' : 'text-gray-900'}`}>
+                        {plan.price}
+                      </span>
+                      <span className={`text-sm font-semibold ${isHighlighted ? 'text-white/80' : 'text-gray-500'}`}>
+                        {plan.period}
+                      </span>
+                    </div>
+
+                    {/* Features Divider */}
+                    <div className={`h-px w-full mb-6 ${isHighlighted ? 'bg-white/20' : 'bg-gray-100'}`} />
+
+                    {/* Features List */}
+                    <ul className="space-y-3 mb-8">
+                      {plan.features.map((feat, i) => (
+                        <li key={i} className="flex items-start gap-2.5 text-sm">
+                          <Check
+                            className={`w-4 h-4 flex-shrink-0 mt-0.5 ${
+                              isHighlighted ? 'text-white' : 'text-emerald-500'
+                            }`}
+                          />
+                          <span className={isHighlighted ? 'text-white/95' : 'text-gray-700'}>
+                            {feat}
+                          </span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  {/* CTA Button */}
+                  <div className="pt-2">
+                    <a
+                      href={plan.buttonLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={`w-full block text-center font-bold py-3.5 px-4 rounded-xl transition-all duration-300 shadow-md ${
+                        isHighlighted
+                          ? 'bg-white text-brand-primary hover:bg-gray-100 hover:shadow-lg'
+                          : plan.name === 'Business'
+                          ? 'bg-brand-primary hover:bg-[#a01129] text-white hover:shadow-lg'
+                          : plan.name === 'Starter'
+                          ? 'bg-brand-primary hover:bg-[#a01129] text-white hover:shadow-lg'
+                          : 'bg-gray-100 hover:bg-gray-200 text-gray-800 border border-gray-300'
+                      }`}
+                    >
+                      {plan.buttonText}
+                    </a>
+                  </div>
+                </div>
+              )
+            })}
           </div>
         </div>
       </section>
