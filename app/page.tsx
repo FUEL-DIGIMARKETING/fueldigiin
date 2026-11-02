@@ -111,7 +111,7 @@ const Home = () => {
       },
       "contactPoint": {
         "@type": "ContactPoint",
-        "telephone": "+918754236989",
+        "telephone": "+918015874749",
         "contactType": "customer support",
         "areaServed": "IN",
         "availableLanguage": ["English"]

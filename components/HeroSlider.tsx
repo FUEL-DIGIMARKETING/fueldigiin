@@ -87,9 +87,9 @@ const HeroSlider = () => {
             </div>
             
             <div className="bg-[#870d23] text-white font-bold px-4 py-2 rounded-xl hover:bg-[#6b0a1c] transition-all duration-300 flex flex-col items-start gap-1 text-xs">
-                <a href="tel:+918754236989" className="flex items-center gap-2 hover:text-gray-200">
+                <a href="tel:+918015874749" className="flex items-center gap-2 hover:text-gray-200">
                   <Phone className="w-4 h-4" />
-                  <span>+91 87542 36989</span>
+                  <span>+91 80158 74749</span>
                 </a>
                 <a href="mailto:info@fueldigi.in" className="flex items-center gap-2 hover:text-gray-200">
                   <Mail className="w-4 h-4" />

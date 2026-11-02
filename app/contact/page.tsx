@@ -211,7 +211,7 @@ export default function ContactPage() {
                   <div>
                     <p className="text-xl font-semibold mb-2 text-gray-900">Call Us</p>
                     <p className="text-gray-700">+91 84382 40280</p>
-                    <p className="text-gray-700">+91 87542 36989</p>
+                    <p className="text-gray-700">+91 80158 74749</p>
                     <p className="text-sm text-gray-600">Mon-Sat: 10AM - 6PM IST</p>
                   </div>
                 </a>

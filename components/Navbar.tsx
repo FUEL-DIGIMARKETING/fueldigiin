@@ -95,9 +95,9 @@ export default function Navbar() {
               </Link>
               <img src={productInfo!.logo} alt={`${productInfo!.name} Logo`} width={150} height={60} className="h-14 w-auto" />
               <div className="bg-brand-primary text-white font-bold px-4 py-2 rounded-xl hover:bg-[#6b0a1c] transition-all duration-300 flex flex-col items-start gap-1">
-                <a href="tel:+918754236989" className="flex items-center gap-2 hover:text-gray-200">
+                <a href="tel:+918015874749" className="flex items-center gap-2 hover:text-gray-200">
                   <Phone className="w-4 h-4" />
-                  <span>+91 87542 36989</span>
+                  <span>+91 80158 74749</span>
                 </a>
                 <a href="mailto:info@fueldigi.in" className="flex items-center gap-2 hover:text-gray-200">
                   <Mail className="w-4 h-4" />
@@ -161,9 +161,9 @@ export default function Navbar() {
         {/* Mobile - Top contact bar */}
         <div className="md:hidden fixed top-10 left-0 right-0 z-50 bg-brand-primary px-4">
           <div className="flex items-center justify-center gap-4 h-10 text-white text-xs font-semibold">
-            <a href="tel:+918754236989" className="flex items-center gap-1 hover:text-gray-200 transition-colors">
+            <a href="tel:+918015874749" className="flex items-center gap-1 hover:text-gray-200 transition-colors">
               <Phone className="w-3 h-3" />
-              <span>8754236989</span>
+              <span>8015874749</span>
             </a>
             <span className="text-white/40">|</span>
             <a href="mailto:info@fueldigi.in" className="flex items-center gap-1 hover:text-gray-200 transition-colors">
@@ -225,9 +225,9 @@ export default function Navbar() {
                 Contact
               </Link>
                 <div className="flex flex-col gap-3">
-                  <a href="tel:+918754236989" className="flex items-center justify-center gap-2 w-full bg-brand-primary text-white font-bold px-4 py-3 rounded-xl hover:bg-[#6b0a1c] transition-all duration-300">
+                  <a href="tel:+918015874749" className="flex items-center justify-center gap-2 w-full bg-brand-primary text-white font-bold px-4 py-3 rounded-xl hover:bg-[#6b0a1c] transition-all duration-300">
                     <Phone className="w-4 h-4" />
-                    <span>+91 87542 36989</span>
+                    <span>+91 80158 74749</span>
                   </a>
                   <a href="mailto:info@fueldigi.in" className="flex items-center justify-center gap-2 w-full bg-brand-primary text-white font-bold px-4 py-3 rounded-xl hover:bg-[#6b0a1c] transition-all duration-300">
                     <Mail className="w-4 h-4" />
@@ -309,9 +309,9 @@ export default function Navbar() {
               </div>
               
               <div className="bg-[#870d23] text-white text-xs font-bold px-4 py-2 rounded-xl hover:bg-[#6b0a1c] transition-all duration-300 flex flex-col items-start gap-1">
-                <a href="tel:+918754236989" className="flex items-center gap-2 hover:text-gray-200">
+                <a href="tel:+918015874749" className="flex items-center gap-2 hover:text-gray-200">
                   <Phone className="w-4 h-4" />
-                  <span>+91 87542 36989</span>
+                  <span>+91 80158 74749</span>
                 </a>
                 <a href="mailto:info@fueldigi.in" className="flex items-center gap-2 hover:text-gray-200">
                   <Mail className="w-4 h-4" />
@@ -326,9 +326,9 @@ export default function Navbar() {
       {/* Mobile - Top contact bar */}
       <div className="md:hidden fixed top-10 left-0 right-0 z-50 bg-brand-primary px-4">
         <div className="flex items-center justify-center gap-4 h-10 text-white text-xs font-semibold">
-          <a href="tel:+918754236989" className="flex items-center gap-1 hover:text-gray-200 transition-colors">
+          <a href="tel:+918015874749" className="flex items-center gap-1 hover:text-gray-200 transition-colors">
             <Phone className="w-3 h-3" />
-            <span>8754236989</span>
+            <span>8015874749</span>
           </a>
           <span className="text-white/40">|</span>
           <a href="mailto:info@fueldigi.in" className="flex items-center gap-1 hover:text-gray-200 transition-colors">
@@ -390,9 +390,9 @@ export default function Navbar() {
                 Contact
               </Link>
               <div className="flex flex-col gap-3">
-                <a href="tel:+918754236989" className="flex items-center justify-center gap-2 w-full bg-brand-primary text-white font-bold px-4 py-3 rounded-xl hover:bg-[#6b0a1c] transition-all duration-300">
+                <a href="tel:+918015874749" className="flex items-center justify-center gap-2 w-full bg-brand-primary text-white font-bold px-4 py-3 rounded-xl hover:bg-[#6b0a1c] transition-all duration-300">
                   <Phone className="w-4 h-4" />
-                  <span>+91 87542 36989</span>
+                  <span>+91 80158 74749</span>
                 </a>
                 <a href="mailto:info@fueldigi.in" className="flex items-center justify-center gap-2 w-full bg-brand-primary text-white font-bold px-4 py-3 rounded-xl hover:bg-[#6b0a1c] transition-all duration-300">
                   <Mail className="w-4 h-4" />
