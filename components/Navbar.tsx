@@ -91,7 +91,7 @@ export default function Navbar() {
               borderBottomRightRadius: '50px',
             }}>
               <Link href="/">
-                <img src="/assets/best-digital-marketing-company-services-chennai-online-fdm.webp" alt="FuelDigi Logo" width={120} height={48} className="h-12 w-auto" />
+                <img src="/assets/diwali-logo.webp" alt="FuelDigi Logo" width={120} height={48} className="h-12 w-auto" />
               </Link>
               <img src={productInfo!.logo} alt={`${productInfo!.name} Logo`} width={150} height={60} className="h-14 w-auto" />
               <div className="bg-brand-primary text-white font-bold px-4 py-2 rounded-xl hover:bg-[#6b0a1c] transition-all duration-300 flex flex-col items-start gap-1">
@@ -261,7 +261,7 @@ export default function Navbar() {
           >
             <div className="flex items-center justify-between h-20 px-8">
               <Link href="/">
-                <img src="/assets/best-digital-marketing-company-services-chennai-online-fdm.webp" alt="FDM Logo" width={120} height={48} className="h-12 w-auto" />
+                <img src="/assets/diwali-logo.webp" alt="FDM Logo" width={120} height={48} className="h-12 w-auto" />
               </Link>
               
               <div className="flex items-center gap-12 flex-1 justify-center">
@@ -346,7 +346,7 @@ export default function Navbar() {
         }}>
           <div className="flex items-center justify-between h-16 px-4">
             <Link href="/">
-              <img src="/assets/best-digital-marketing-company-services-chennai-online-fdm.webp" alt="FDM Logo" width={120} height={48} className="h-10 w-auto" />
+              <img src="/assets/diwali-logo.webp" alt="FDM Logo" width={120} height={48} className="h-10 w-auto" />
             </Link>
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}

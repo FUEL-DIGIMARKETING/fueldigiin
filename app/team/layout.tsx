@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 //   "@context": "https://schema.org",
 //   "@type": "LocalBusiness",
 //   "name": "Demo",
-//   "image": "https://www.fueldigi.in/assets/best-digital-marketing-company-services-chennai-online-fdm.webp",
+//   "image": "https://www.fueldigi.in/assets/diwali-logo.webp",
 //   "@id": "https://www.fueldigi.in/contact",
 //   "url": "https://www.fueldigi.in/contact",
 //   "telephone": "+918438240280",

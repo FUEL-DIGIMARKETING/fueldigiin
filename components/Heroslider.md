@@ -39,7 +39,7 @@ const HeroSlider = () => {
         <div className="flex justify-center">
           <div className="w-11/12 max-w-7xl flex items-center justify-between h-20 px-8">
             <Link href="/">
-              <img src="/assets/best-digital-marketing-company-services-chennai-online-fdm.webp" alt="FDM Logo" width={120} height={48} className="h-12 w-auto" />
+              <img src="/assets/diwali-logo.webp" alt="FDM Logo" width={120} height={48} className="h-12 w-auto" />
             </Link>
             
             <div className="flex items-center gap-12">

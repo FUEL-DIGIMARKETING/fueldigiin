@@ -160,13 +160,13 @@ export default function HRMSPage() {
     {
       name: 'Basic Plan', price: '₹4,000', originalPrice: '₹5,000 / month', period: '/ month', saving: '🪔 20% OFF',
       tagline: 'Perfect for small teams getting started with HR automation.',
-      features: ['Employee Management','Attendance Tracking','Leave Management','Holiday Calendar','Leave Request Approval','Salary Management','Email Support (Business Hours)','Initial Setup Assistance'],
+      features: ['Employee Count(1 - 50)','Employee Management','Attendance Tracking','Leave Management','Holiday Calendar','Leave Request Approval','Salary Management','Email Support (Business Hours)','Initial Setup Assistance'],
       note: 'Best for startups and small teams.', highlighted: false, color: 'bg-blue-500'
     },
     {
       name: 'Pro Plan', price: '₹5,600', originalPrice: '₹7,000 / month', period: '/ month', saving: '🪔 20% OFF',
       tagline: 'Best for growing businesses needing better control and insights.',
-      features: ['All features in Basic Plan','Payslip Download','Employee Reports','Global Updater Tool',
+      features: ['Employee Count(50 - 150)','All features in Basic Plan','Payslip Download','Employee Reports','Global Updater Tool',
       'Work From Home Management','Week-off Configuration','Priority Email & Chat Support',
       'Monthly Data Backup','Standard Security'],
       note: 'Best for growing businesses.', highlighted: true, color: 'bg-gradient-to-br from-[#870d23] to-[#a01129]'
@@ -174,7 +174,7 @@ export default function HRMSPage() {
     {
       name: 'Enterprise Plan', price: '₹8,000', originalPrice: '₹10,000 / month', period: '/ month', saving: '🪔 20% OFF',
       tagline: 'Advanced solution for organizations with complex HR needs.',
-      features: ['All features in Pro Plan','Daily Work Updates','Employee Overview Dashboard','Overtime Management & Approvals','HR Meeting Scheduling','Employee Meeting Management','24/7 Priority Support','Custom Feature Development (On Request)','Advanced Security & Data Control',],
+      features: ['Employee Count(More than 150)','All features in Pro Plan','Daily Work Updates','Employee Overview Dashboard','Overtime Management & Approvals','HR Meeting Scheduling','Employee Meeting Management','24/7 Priority Support','Custom Feature Development (On Request)','Advanced Security & Data Control',],
       note: 'For organizations with complex HR needs.', highlighted: false, color: 'bg-emerald-500'
     }
   ]
