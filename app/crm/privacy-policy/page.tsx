@@ -13,7 +13,7 @@ export default function PrivacyPolicy() {
           Back to CRM
         </Link>
         <h1 className="text-4xl font-bold text-gray-900 mb-4">Privacy Policy – Protecting Personal Data</h1>
-        <p className="text-xl text-gray-700 mb-8">At Fueldigi Marketing, we recognize the significance of our clients' personal data, which they provide when filling out our site or app. We offer complete security. Here, we explain the details of how this <b>privacy policy</b> will work. We collect, use, store, and protect user information when they use our website, applications, or services. We informed them to agree on the data practices that describe the details while customers access or use our platforms.</p>
+        <p className="text-xl text-gray-700 mb-8">At Fueldigi Tech Solution, we recognize the significance of our clients' personal data, which they provide when filling out our site or app. We offer complete security. Here, we explain the details of how this <b>privacy policy</b> will work. We collect, use, store, and protect user information when they use our website, applications, or services. We informed them to agree on the data practices that describe the details while customers access or use our platforms.</p>
         <div className="prose prose-lg max-w-none text-gray-700 space-y-6">
           <p className="text-2xl font-bold text-gray-900 mt-8 mb-4 text-justify">Collect Information from Users</p>
           <p className='text-justify'>Fueldigi collects only the information which required to deliver our services or access to our platforms.</p>

@@ -45,7 +45,7 @@ const PLANS = [
 ]
 
 const PLAN_ORDER = ['BASIC', 'PRO', 'ENTERPRISE']
-const YEARLY_DISCOUNT = 20 // percent
+// const YEARLY_DISCOUNT = 20 // percent
 
 // ── Helpers ───────────────────────────────────────────────────────────────────
 const fmt = (n: number) => '₹' + n.toLocaleString('en-IN')
@@ -211,9 +211,9 @@ function BillingToggle({
       <span className={`text-sm font-semibold ${interval === 'yearly' ? 'text-gray-900 font-bold' : 'text-gray-400'}`}>
         Yearly
       </span>
-      <span className="bg-[#ffcf3e] text-[#6b0a1c] text-xs font-black px-2.5 py-1 rounded-full border border-amber-400 shadow-sm uppercase tracking-wider">
+      {/* <span className="bg-[#ffcf3e] text-[#6b0a1c] text-xs font-black px-2.5 py-1 rounded-full border border-amber-400 shadow-sm uppercase tracking-wider">
         20% OFF
-      </span>
+      </span> */}
     </div>
   )
 }
@@ -498,10 +498,10 @@ export default function PaymentPage() {
               <h1 className="text-3xl font-bold">HRMS Subscription</h1>
               <p className="text-white/90 mt-1">Upgrade your plan and unlock powerful HR features</p>
             </div>
-            <div className="inline-flex items-center gap-2 bg-[#ffcf3e] text-[#6b0a1c] font-black px-4 py-2 rounded-full shadow-lg border border-amber-300 self-start md:self-auto text-sm">
+            {/* <div className="inline-flex items-center gap-2 bg-[#ffcf3e] text-[#6b0a1c] font-black px-4 py-2 rounded-full shadow-lg border border-amber-300 self-start md:self-auto text-sm">
               <span>🪔</span>
               <span>Diwali Offer: 20% OFF Applied</span>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
@@ -770,7 +770,7 @@ export default function PaymentPage() {
             <p className="text-gray-500 text-center text-sm mb-6">All plans include default HR features. GST will be added during payment.</p>
 
             {/* Special Offer Alert Banner */}
-            <div className="bg-gradient-to-r from-amber-50 via-orange-50 to-amber-50 border border-amber-300 rounded-2xl p-4 mb-6 shadow-sm flex items-center justify-between gap-4 flex-wrap">
+            {/* <div className="bg-gradient-to-r from-amber-50 via-orange-50 to-amber-50 border border-amber-300 rounded-2xl p-4 mb-6 shadow-sm flex items-center justify-between gap-4 flex-wrap">
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-full bg-amber-100 flex items-center justify-center text-xl flex-shrink-0">
                   🪔
@@ -787,12 +787,12 @@ export default function PaymentPage() {
               <span className="bg-[#ffcf3e] text-[#6b0a1c] font-black text-xs px-3 py-1 rounded-full uppercase tracking-wider border border-amber-400 shadow-sm">
                 20% OFF APPLIED
               </span>
-            </div>
+            </div> */}
 
             <BillingToggle interval={billingInterval} onChange={v => { setBillingInterval(v); setError('') }} />
 
             {/* Savings banner */}
-            <div className="bg-gradient-to-r from-green-50 to-emerald-50 border border-green-200 rounded-xl p-4 mb-6 flex items-center gap-3">
+            {/* <div className="bg-gradient-to-r from-green-50 to-emerald-50 border border-green-200 rounded-xl p-4 mb-6 flex items-center gap-3">
               <div className="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0">
                 <Calendar className="w-5 h-5 text-green-600" />
               </div>
@@ -804,7 +804,7 @@ export default function PaymentPage() {
                     : 'Monthly subscription with flat 20% discount applied across all plans.'}
                 </p>
               </div>
-            </div>
+            </div> */}
 
             {/* Plan cards */}
             <div className="grid md:grid-cols-3 gap-6 mb-8">
@@ -821,10 +821,10 @@ export default function PaymentPage() {
                     className={`relative bg-white rounded-2xl shadow-lg cursor-pointer transition-all border-2 overflow-hidden ${isSelected ? 'border-[#870d23] scale-[1.02] shadow-xl' : 'border-transparent hover:border-gray-200 hover:shadow-xl'}`}>
 
                     {/* 20% OFF Special Ribbon */}
-                    <div className="bg-gradient-to-r from-amber-500 via-[#870d23] to-amber-500 text-white text-xs font-extrabold text-center py-1.5 tracking-wider uppercase flex items-center justify-center gap-1.5 shadow-sm">
+                    {/* <div className="bg-gradient-to-r from-amber-500 via-[#870d23] to-amber-500 text-white text-xs font-extrabold text-center py-1.5 tracking-wider uppercase flex items-center justify-center gap-1.5 shadow-sm">
                       <span>🪔</span>
                       <span>DIWALI SPECIAL — 20% OFF</span>
-                    </div>
+                    </div> */}
 
                     <div className="p-6">
                       {plan.popular && (
@@ -853,22 +853,22 @@ export default function PaymentPage() {
                       <div className="mb-4 p-4 rounded-xl text-center" style={{ backgroundColor: plan.color + '08' }}>
                         {/* 20% OFF Original Price & Discount Tag */}
                         <div className="flex items-center justify-center gap-2 mb-1.5">
-                          <span className="text-base text-gray-400 line-through font-semibold">
+                          <span className="text-4xl font-black" style={{ color: plan.color }}>
                             {fmt(billingInterval === 'yearly' ? plan.yearlyOriginal : plan.monthlyOriginal)}
                           </span>
-                          <span className="bg-[#ffcf3e] text-[#6b0a1c] text-[11px] font-black px-2 py-0.5 rounded-full uppercase tracking-wider border border-amber-400 shadow-sm">
+                          {/* <span className="bg-[#ffcf3e] text-[#6b0a1c] text-[11px] font-black px-2 py-0.5 rounded-full uppercase tracking-wider border border-amber-400 shadow-sm">
                             20% OFF
-                          </span>
+                          </span> */}
                         </div>
-                        <div className="flex items-end justify-center gap-1">
+                        {/* <div className="flex items-end justify-center gap-1">
                           <span className="text-4xl font-black" style={{ color: plan.color }}>{fmt(price)}</span>
                           <span className="text-gray-500 text-sm mb-1.5">/{billingInterval === 'yearly' ? 'year' : 'month'}</span>
-                        </div>
-                        {billingInterval === 'yearly' && (
+                        </div> */}
+                        {/* {billingInterval === 'yearly' && (
                           <div className="mt-2">
                             <span className="text-sm font-bold text-green-600">≈ {fmt(monthlyEquiv)}/month</span>
                           </div>
-                        )}
+                        )} */}
                         <p className="text-xs text-gray-500 mt-2">+18% GST at checkout</p>
                       </div>
 
@@ -924,7 +924,7 @@ export default function PaymentPage() {
 
               {isPaidCompany && isSamePlan && (
                 <div className="px-8 py-3 bg-gray-100 rounded-xl text-gray-500 font-medium">
-                  Already on this plan &amp; billing cycle
+                  Already on this plan & billing cycle
                 </div>
               )}
 
@@ -1055,9 +1055,9 @@ export default function PaymentPage() {
                       </div>
                       <h2 className="text-3xl font-bold mb-1">Payment Successful!</h2>
                       <p className="text-white/80 text-sm">Your {selectedPlan} Plan ({billingInterval}) is now active</p>
-                      {billingInterval === 'yearly' && (
-                        <p className="text-green-300 text-xs mt-1 font-semibold">🎉 Yearly plan — you saved {YEARLY_DISCOUNT}%!</p>
-                      )}
+                      {billingInterval === 'yearly' 
+                        // <p className="text-green-300 text-xs mt-1 font-semibold">🎉 Yearly plan — you saved {YEARLY_DISCOUNT}%!</p>
+                      }
                     </div>
 
                     <div className="bg-white rounded-2xl shadow-xl border-2 border-[#870d23] p-6 mb-6 text-center">
@@ -1145,7 +1145,7 @@ export default function PaymentPage() {
                 </p>
                 <p className="text-gray-500 text-sm mb-6">
                   Billing: <span className="font-semibold capitalize">{billingInterval}</span>
-                  {billingInterval === 'yearly' && <span className="ml-2 text-green-600 font-semibold">🎉 {YEARLY_DISCOUNT}% saved!</span>}
+                  {/* {billingInterval === 'yearly' && <span className="ml-2 text-green-600 font-semibold">🎉 {YEARLY_DISCOUNT}% saved!</span>} */}
                 </p>
                 {verifiedCompany?.isNew && (
                   <div className="bg-yellow-50 border border-yellow-200 rounded-xl p-5 mb-6 text-left">

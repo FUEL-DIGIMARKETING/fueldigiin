@@ -48,7 +48,7 @@ export default function AboutPage() {
             Software Application Development Services in Chennai
           </h1>
           <p className="text-xl lg:text-2xl max-w-4xl mx-auto" data-aos="fade-up" data-aos-delay="100">
-            FuelDigi Marketing
+            FuelDigi Tech Solution
           </p>
         </div>
       </section>

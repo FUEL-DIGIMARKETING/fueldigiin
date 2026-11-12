@@ -926,11 +926,11 @@ export default function HRMSPage() {
                   : 'bg-white text-gray-900 border border-gray-200 shadow-lg hover:shadow-xl hover:-translate-y-1'
               }`}>
                 {plan.highlighted && <span className="absolute -top-4 left-1/2 -translate-x-1/2 bg-gradient-to-r from-[#870d23] to-[#a01129] text-white text-sm font-bold px-5 py-1.5 rounded-full shadow-lg">⭐ Most Popular</span>}
-                {'saving' in plan && (
+                {/* {'saving' in plan && (
                   <span className={`absolute top-4 right-4 text-xs font-black px-3 py-1 rounded-full shadow-sm flex items-center gap-1 ${
                     plan.highlighted ? 'bg-[#ffcf3e] text-[#6b0a1c]' : 'bg-[#ffcf3e]/20 text-[#870d23] border border-[#ffcf3e]'
                   }`}>{plan.saving}</span>
-                )}
+                )} */}
 
                 {/* Plan Header */}
                 <div className={`w-10 h-10 rounded-2xl mb-4 flex items-center justify-center ${plan.highlighted ? 'bg-white/20' : 'bg-[#870d23]/10'}`}>
@@ -941,16 +941,16 @@ export default function HRMSPage() {
                 <div className="mb-1">
                   {'originalPrice' in plan && (
                     <div className="flex items-center gap-2 mb-1">
-                      <span className={`text-base line-through font-semibold ${plan.highlighted ? 'text-white/60' : 'text-gray-400'}`}>{(plan as any).originalPrice}</span>
-                      <span className="text-[11px] font-black text-[#680819] bg-[#ffcf3e] px-2 py-0.5 rounded-full uppercase tracking-wider">
+                      <span className={`text-4xl font-black ${plan.highlighted ? 'text-white' : 'text-[#870d23]'}`}>{(plan as any).originalPrice}</span>
+                      {/* <span className="text-[11px] font-black text-[#680819] bg-[#ffcf3e] px-2 py-0.5 rounded-full uppercase tracking-wider">
                         20% OFF
-                      </span>
+                      </span> */}
                     </div>
                   )}
-                  <div className="flex items-end gap-1">
+                  {/* <div className="flex items-end gap-1">
                     <span className={`text-4xl font-black ${plan.highlighted ? 'text-white' : 'text-[#870d23]'}`}>{plan.price}</span>
                     <span className={`text-sm mb-1 font-bold ${plan.highlighted ? 'text-white' : 'text-[#870d23]'}`}>{plan.period}</span>
-                  </div>
+                  </div> */}
                 </div>
                 <p className={`text-sm font-bold mb-5 ${plan.highlighted ? 'text-white' : 'text-[#870d23]'}`}>+ 18% GST</p>
 

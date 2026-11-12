@@ -39,7 +39,7 @@ const HeroSlider = () => {
         <div className="flex justify-center">
           <div className="w-11/12 max-w-7xl flex items-center justify-between h-20 px-8">
             <Link href="/">
-              <img src="/assets/diwali-logo.webp" alt="FDM Logo" width={120} height={48} className="h-12 w-auto" />
+              <img src="/assets/best-digital-marketing-company-services-chennai-online-fdm.webp" alt="FDM Logo" width={120} height={48} className="h-12 w-auto" />
             </Link>
             
             <div className="flex items-center gap-12">
@@ -101,13 +101,13 @@ const HeroSlider = () => {
       </div>
 
       {/* Hero Section with Curved Edges */}
-      <div className="relative h-[100vh] overflow-hidden pt-4 md:pt-4 px-0 md:px-8 pb-4 md:pb-8" data-hero-slider>
+      <div className="relative w-full px-2 md:px-4 pb-2 md:pb-4 mt-[144px] md:mt-10" data-hero-slider>
         {/* Curved Background Container */}
-        <div className="relative h-full rounded-[40px] md:rounded-[60px] overflow-hidden">
+        <div className="relative w-full rounded-[20px] md:rounded-[40px] overflow-hidden">
           <img
             src="/assets/diwali-offer-banner.webp"
             alt="Hero Banner"
-            className="absolute inset-0 w-full h-full object-cover"
+            className="w-full h-auto block"
           />
           {/* Black overlay for mobile text visibility */}
           {/* <div className="absolute inset-0 bg-black/50 md:bg-transparent z-[1]" /> */}
@@ -155,7 +155,7 @@ const HeroSlider = () => {
           </div> */}
           
           {/* Brand Logos Section */}
-          <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-[100%] z-10">
+          {/* <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-[100%] z-10">
             <div className="bg-white/80 backdrop-blur-sm rounded-2xl py-4 px-2 overflow-hidden border border-white/50 shadow-lg">
               <p className="text-gray-800 font-bold text-sm mb-2 tracking-wider text-center">TRUSTED BY AMAZING BRANDS</p>
               <div className="flex items-center gap-16 md:gap-32 animate-scroll-fast" style={{ width: 'max-content' }}>
@@ -166,7 +166,6 @@ const HeroSlider = () => {
                 <img src="/assets/best-real-estate-company-in-chennai-river-properties.png" alt="River Properties" width={120} height={60} className="h-8 md:h-12 w-auto flex-shrink-0" />
                 <img src="/assets/best-automatic-water-level-controller-in-chennai.png" alt="SGM" width={120} height={60} className="h-8 md:h-12 w-auto flex-shrink-0" />
                 <img src="/assets/financial-consultant-in-chennai.png" alt="Financial Consultant" width={120} height={60} className="h-8 md:h-12 w-auto flex-shrink-0" />
-                {/* Duplicate for seamless loop */}
                 <img src="/assets/good-caterers-in-chennai.png" alt="CMS Business Finance" width={120} height={60} className="h-8 md:h-12 w-auto flex-shrink-0" />
                 <img src="/assets/sgm-finance-associate.png" alt="KVB Events" width={120} height={60} className="h-8 md:h-12 w-auto flex-shrink-0" />
                 <img src="/assets/river-salon-and-day-spa.png" alt="KVB" width={120} height={60} className="h-8 md:h-12 w-auto flex-shrink-0" />
@@ -176,7 +175,7 @@ const HeroSlider = () => {
                 <img src="/assets/financial-consultant-in-chennai.png" alt="Financial Consultant" width={120} height={60} className="h-8 md:h-12 w-auto flex-shrink-0" />
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>

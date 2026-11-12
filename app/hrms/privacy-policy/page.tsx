@@ -15,7 +15,7 @@ export default function PrivacyPolicy() {
         <h1 className="text-4xl font-bold text-gray-900 mb-4">Privacy Policy - HRMS</h1>
         <p className="text-xl text-gray-700 mb-8">Mobile-based Office Attendance & Human Resource Management System</p>
         <div className="prose prose-lg max-w-none text-gray-700 space-y-6">
-          <p className='text-justify'>HRMS FDM is a mobile-based Office Attendance and Human Resource Management System developed and maintained by FuelDigi Marketing.</p>
+          <p className='text-justify'>HRMS FDM is a mobile-based Office Attendance and Human Resource Management System developed and maintained by FuelDigi Tech Solution.</p>
           <p className='text-justify'>We are committed to safeguarding the privacy, confidentiality, and security of employee information. This Privacy Policy explains how information is collected, used, stored, and protected when using the HRMS FDM mobile application.</p>
           
           <section>

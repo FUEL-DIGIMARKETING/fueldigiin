@@ -4,7 +4,6 @@ import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { ChevronDown, Menu, X, Phone, Mail } from 'lucide-react'
-import DiwaliTopBar from '@/components/DiwaliTopBar'
 
 export default function Navbar() {
   const [isVisible, setIsVisible] = useState(false)
@@ -44,7 +43,7 @@ export default function Navbar() {
     if (isHRMSPage) return { logo: '/assets/custom-hrms.webp', name: 'HRMS', excludeProducts: ['CRM', 'Spa Booking', 'FuelDigi Campaigns'] }
     if (isCRMPage) return { logo: '/assets/customised-crm.webp', name: 'CRM', excludeProducts: ['HRMS', 'Spa Booking', 'FuelDigi Campaigns'] }
     if (isSpaPage) return { logo: '/assets/spa-management-software.webp', name: 'Spa', excludeProducts: ['CRM', 'HRMS', 'FuelDigi Campaigns'] }
-    if (isEmailPage) return { logo: '/assets/fueldigi-campaigns.webp', name: 'FuelDigi Campaigns', excludeProducts: ['CRM', 'HRMS', 'Spa Booking'] }
+    if (isEmailPage) return { logo: '/assets/fueldigi-campaigns', name: 'FuelDigi Campaigns', excludeProducts: ['CRM', 'HRMS', 'Spa Booking'] }
     return null
   }
 
@@ -52,7 +51,7 @@ export default function Navbar() {
     if (isHRMSPage) return '/assets/custom-hrms.webp'
     if (isCRMPage) return '/assets/customised-crm.webp'
     if (isSpaPage) return '/assets/spa-management-software.webp'
-    if (isEmailPage) return '/assets/fueldigi-campaigns.webp'
+    if (isEmailPage) return '/assets/fueldigi-campaigns'
     return '/assets/FDM.webp'
   }
 
@@ -78,11 +77,8 @@ export default function Navbar() {
   if (isProductPage) {
     return (
       <>
-        {/* Fixed Diwali Offer Top Bar */}
-        <DiwaliTopBar />
-
         {/* Desktop - Curved navbar on scroll */}
-        <div className={`hidden md:block fixed top-10 left-0 right-0 z-50 transition-all duration-300 ${
+        <div className={`hidden md:block fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           isVisible ? 'translate-y-0' : '-translate-y-full'
         }`}>
           <div className="flex justify-center">
@@ -91,13 +87,13 @@ export default function Navbar() {
               borderBottomRightRadius: '50px',
             }}>
               <Link href="/">
-                <img src="/assets/diwali-logo.webp" alt="FuelDigi Logo" width={120} height={48} className="h-12 w-auto" />
+                <img src="/assets/best-tech-solution.webp" alt="FuelDigi Logo" width={120} height={48} className="h-12 w-auto" />
               </Link>
               <img src={productInfo!.logo} alt={`${productInfo!.name} Logo`} width={150} height={60} className="h-14 w-auto" />
               <div className="bg-brand-primary text-white font-bold px-4 py-2 rounded-xl hover:bg-[#6b0a1c] transition-all duration-300 flex flex-col items-start gap-1">
-                <a href="tel:+918015874749" className="flex items-center gap-2 hover:text-gray-200">
+                <a href="tel:+918754236989" className="flex items-center gap-2 hover:text-gray-200">
                   <Phone className="w-4 h-4" />
-                  <span>+91 80158 74749</span>
+                  <span>+91 87542 36989</span>
                 </a>
                 <a href="mailto:info@fueldigi.in" className="flex items-center gap-2 hover:text-gray-200">
                   <Mail className="w-4 h-4" />
@@ -159,11 +155,11 @@ export default function Navbar() {
         </div>
 
         {/* Mobile - Top contact bar */}
-        <div className="md:hidden fixed top-10 left-0 right-0 z-50 bg-brand-primary px-4">
+        <div className="md:hidden fixed top-0 left-0 right-0 z-50 bg-brand-primary px-4">
           <div className="flex items-center justify-center gap-4 h-10 text-white text-xs font-semibold">
-            <a href="tel:+918015874749" className="flex items-center gap-1 hover:text-gray-200 transition-colors">
+            <a href="tel:+918754236989" className="flex items-center gap-1 hover:text-gray-200 transition-colors">
               <Phone className="w-3 h-3" />
-              <span>8015874749</span>
+              <span>8754236989</span>
             </a>
             <span className="text-white/40">|</span>
             <a href="mailto:info@fueldigi.in" className="flex items-center gap-1 hover:text-gray-200 transition-colors">
@@ -174,7 +170,7 @@ export default function Navbar() {
         </div>
 
         {/* Mobile - Only curved navbar */}
-        <div className="md:hidden fixed top-20 left-0 right-0 z-50 px-4">
+        <div className="md:hidden fixed top-10 left-0 right-0 z-50 px-4">
           <div className="bg-white shadow-lg" style={{
             borderBottomLeftRadius: '30px',
             borderBottomRightRadius: '30px',
@@ -225,9 +221,9 @@ export default function Navbar() {
                 Contact
               </Link>
                 <div className="flex flex-col gap-3">
-                  <a href="tel:+918015874749" className="flex items-center justify-center gap-2 w-full bg-brand-primary text-white font-bold px-4 py-3 rounded-xl hover:bg-[#6b0a1c] transition-all duration-300">
+                  <a href="tel:+918754236989" className="flex items-center justify-center gap-2 w-full bg-brand-primary text-white font-bold px-4 py-3 rounded-xl hover:bg-[#6b0a1c] transition-all duration-300">
                     <Phone className="w-4 h-4" />
-                    <span>+91 80158 74749</span>
+                    <span>+91 87542 36989</span>
                   </a>
                   <a href="mailto:info@fueldigi.in" className="flex items-center justify-center gap-2 w-full bg-brand-primary text-white font-bold px-4 py-3 rounded-xl hover:bg-[#6b0a1c] transition-all duration-300">
                     <Mail className="w-4 h-4" />
@@ -244,11 +240,8 @@ export default function Navbar() {
 
   return (
     <>
-      {/* Fixed Diwali Offer Top Bar */}
-      <DiwaliTopBar />
-
       {/* Desktop - Curved navbar on scroll */}
-      <div className={`hidden md:block fixed top-10 left-0 right-0 z-50 transition-all duration-300 ${
+      <div className={`hidden md:block fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isVisible ? 'translate-y-0' : '-translate-y-full'
       }`}>
         <div className="flex justify-center">
@@ -261,7 +254,7 @@ export default function Navbar() {
           >
             <div className="flex items-center justify-between h-20 px-8">
               <Link href="/">
-                <img src="/assets/diwali-logo.webp" alt="FDM Logo" width={120} height={48} className="h-12 w-auto" />
+                <img src="/assets/best-tech-solution.webp" alt="FDM Logo" width={120} height={48} className="h-12 w-auto" />
               </Link>
               
               <div className="flex items-center gap-12 flex-1 justify-center">
@@ -309,9 +302,9 @@ export default function Navbar() {
               </div>
               
               <div className="bg-[#870d23] text-white text-xs font-bold px-4 py-2 rounded-xl hover:bg-[#6b0a1c] transition-all duration-300 flex flex-col items-start gap-1">
-                <a href="tel:+918015874749" className="flex items-center gap-2 hover:text-gray-200">
+                <a href="tel:+918754236989" className="flex items-center gap-2 hover:text-gray-200">
                   <Phone className="w-4 h-4" />
-                  <span>+91 80158 74749</span>
+                  <span>+91 87542 36989</span>
                 </a>
                 <a href="mailto:info@fueldigi.in" className="flex items-center gap-2 hover:text-gray-200">
                   <Mail className="w-4 h-4" />
@@ -324,11 +317,11 @@ export default function Navbar() {
       </div>
 
       {/* Mobile - Top contact bar */}
-      <div className="md:hidden fixed top-10 left-0 right-0 z-50 bg-brand-primary px-4">
+      <div className="md:hidden fixed top-0 left-0 right-0 z-50 bg-brand-primary px-4">
         <div className="flex items-center justify-center gap-4 h-10 text-white text-xs font-semibold">
-          <a href="tel:+918015874749" className="flex items-center gap-1 hover:text-gray-200 transition-colors">
+          <a href="tel:+918754236989" className="flex items-center gap-1 hover:text-gray-200 transition-colors">
             <Phone className="w-3 h-3" />
-            <span>8015874749</span>
+            <span>8754236989</span>
           </a>
           <span className="text-white/40">|</span>
           <a href="mailto:info@fueldigi.in" className="flex items-center gap-1 hover:text-gray-200 transition-colors">
@@ -339,14 +332,14 @@ export default function Navbar() {
       </div>
 
       {/* Mobile - Only curved navbar */}
-      <div className="md:hidden fixed top-20 left-0 right-0 z-50 px-4">
+      <div className="md:hidden fixed top-10 left-0 right-0 z-50 px-4">
         <div className="bg-white shadow-lg" style={{
           borderBottomLeftRadius: '30px',
           borderBottomRightRadius: '30px',
         }}>
           <div className="flex items-center justify-between h-16 px-4">
             <Link href="/">
-              <img src="/assets/diwali-logo.webp" alt="FDM Logo" width={120} height={48} className="h-10 w-auto" />
+              <img src="/assets/best-tech-solution.webp" alt="FDM Logo" width={120} height={48} className="h-10 w-auto" />
             </Link>
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -390,9 +383,9 @@ export default function Navbar() {
                 Contact
               </Link>
               <div className="flex flex-col gap-3">
-                <a href="tel:+918015874749" className="flex items-center justify-center gap-2 w-full bg-brand-primary text-white font-bold px-4 py-3 rounded-xl hover:bg-[#6b0a1c] transition-all duration-300">
+                <a href="tel:+918754236989" className="flex items-center justify-center gap-2 w-full bg-brand-primary text-white font-bold px-4 py-3 rounded-xl hover:bg-[#6b0a1c] transition-all duration-300">
                   <Phone className="w-4 h-4" />
-                  <span>+91 80158 74749</span>
+                  <span>+91 87542 36989</span>
                 </a>
                 <a href="mailto:info@fueldigi.in" className="flex items-center justify-center gap-2 w-full bg-brand-primary text-white font-bold px-4 py-3 rounded-xl hover:bg-[#6b0a1c] transition-all duration-300">
                   <Mail className="w-4 h-4" />

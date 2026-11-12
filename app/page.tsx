@@ -99,7 +99,7 @@ const Home = () => {
       "@id": "https://www.fueldigi.in/#organization",
       "name": "FuelDigi",
       "url": "https://www.fueldigi.in/",
-      "logo": "https://www.fueldigi.in/assets/diwali-logo.webp",
+      "logo": "https://www.fueldigi.in/assets/best-digital-marketing-company-services-chennai-online-fdm.webp",
       "description": "FuelDigi is a SaaS product company offering custom software solutions including CRM, HRMS, and cloud-based business applications.",
       "address": {
         "@type": "PostalAddress",

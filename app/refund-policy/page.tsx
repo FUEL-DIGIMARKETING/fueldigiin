@@ -15,7 +15,7 @@ export default function PrivacyPolicy() {
         <h1 className="text-4xl font-bold text-gray-900 mb-4">Refund Policy – HRMS FDM</h1>
         <p className="text-xl text-black font-bold mb-8"><b>Developer:</b> FuelDigi Marketing</p>
         <div className="prose prose-lg max-w-none text-gray-700 space-y-4">
-          <p className='text-justify'>FuelDigi Marketing is committed to maintaining transparency and fairness in all financial transactions made through the HRMS FDM application. This Refund Policy explains the conditions under which refunds may be requested and processed.</p>
+          <p className='text-justify'>FuelDigi Tech Solution is committed to maintaining transparency and fairness in all financial transactions made through the HRMS FDM application. This Refund Policy explains the conditions under which refunds may be requested and processed.</p>
           
           <section>
             <p className="text-2xl font-bold text-gray-900 mt-8 mb-4 text-justify">1. Eligibility for Refund</p>
@@ -64,12 +64,12 @@ export default function PrivacyPolicy() {
             <p className='text-justify mb-2'>Service cancellation requests must be submitted in writing via email.</p>
              <p className='text-justify mb-4'>Cancellation does not automatically guarantee a refund unless it meets the eligibility and satisfaction-based refund conditions stated above.</p>
             <p className="text-2xl font-bold text-gray-900 mt-8 mb-4 text-justify">7. Fraud & Abuse Prevention</p>
-            <p className='text-justify mb-4'>FuelDigi Marketing reserves the right to deny refund requests in cases of suspected fraud, misuse, or violation of application policies and terms.</p>
+            <p className='text-justify mb-4'>FuelDigi Tech Solution reserves the right to deny refund requests in cases of suspected fraud, misuse, or violation of application policies and terms.</p>
             <p className="text-2xl font-bold text-gray-900 mt-8 mb-4 text-justify">8. Policy Updates</p>
             <p className='text-justify'>This Refund Policy may be revised from time to time. Any changes will be reflected in the application or communicated by the organization.</p>
             <p className="text-2xl font-bold text-gray-900 mt-8 mb-4">9. Contact Information</p>
             <p className='text-justify'>For refund-related questions or support, please contact:</p>
-            <p><b>FuelDigi Marketing</b> - <a href="mailto:info@fueldigi.in" className="text-primary underline hover:text-black">info@fueldigi.in</a></p>
+            <p><b>FuelDigi Tech Solution</b> - <a href="mailto:info@fueldigi.in" className="text-primary underline hover:text-black">info@fueldigi.in</a></p>
             <p className='font-bold italic text-sm mt-4'>Last Updated : Feb 2026</p>
           </section>
         </div>
