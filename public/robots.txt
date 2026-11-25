@@ -1,11 +1,9 @@
 User-agent: *
-Disallow: /_next/
-Disallow: /static/
-Disallow: /*.js$
-Disallow: /*.css$
 Disallow: /hrms/payment
 Disallow: /crm/payment
-Disallow: /products/crm-development-company-in-chennai/payment
+Disallow: /cdn-cgi/
+Disallow: /admin-dashboard
+Disallow: /admin-login
 
 Allow: /
 

@@ -43,7 +43,7 @@ export default function Navbar() {
     if (isHRMSPage) return { logo: '/assets/custom-hrms.webp', name: 'HRMS', excludeProducts: ['CRM', 'Spa Booking', 'FuelDigi Campaigns'] }
     if (isCRMPage) return { logo: '/assets/customised-crm.webp', name: 'CRM', excludeProducts: ['HRMS', 'Spa Booking', 'FuelDigi Campaigns'] }
     if (isSpaPage) return { logo: '/assets/spa-management-software.webp', name: 'Spa', excludeProducts: ['CRM', 'HRMS', 'FuelDigi Campaigns'] }
-    if (isEmailPage) return { logo: '/assets/fueldigi-campaigns', name: 'FuelDigi Campaigns', excludeProducts: ['CRM', 'HRMS', 'Spa Booking'] }
+    if (isEmailPage) return { logo: '/assets/fueldigi-campaigns.webp', name: 'FuelDigi Campaigns', excludeProducts: ['CRM', 'HRMS', 'Spa Booking'] }
     return null
   }
 
@@ -51,7 +51,7 @@ export default function Navbar() {
     if (isHRMSPage) return '/assets/custom-hrms.webp'
     if (isCRMPage) return '/assets/customised-crm.webp'
     if (isSpaPage) return '/assets/spa-management-software.webp'
-    if (isEmailPage) return '/assets/fueldigi-campaigns'
+    if (isEmailPage) return '/assets/fueldigi-campaigns.webp'
     return '/assets/FDM.webp'
   }
 
